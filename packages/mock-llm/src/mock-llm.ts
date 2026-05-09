@@ -93,7 +93,7 @@ export class MockLLM {
           messages: [{ role: 'user', content: userQuery }]
         })
       });
-      const data = await response.json();
+      const data = await response.json() as any;
       const llmAnswer = data.choices?.[0]?.message?.content || 'No response from LLM';
       return {
         intent, story: undefined,
