@@ -26,18 +26,32 @@ export class ConfigLoader {
   private loadLocalKeywords(): KeywordEntry[] {
     const keywordsPath = path.join(this.source.location.path!, 'keywords');
     const files = fs.readdirSync(keywordsPath).filter(f => f.endsWith('.json'));
-    return files.map(file => {
+    const results: KeywordEntry[] = [];
+    for (const file of files) {
       const content = fs.readFileSync(path.join(keywordsPath, file), 'utf8');
-      return JSON.parse(content) as KeywordEntry;
-    });
+      const parsed = JSON.parse(content);
+      if (Array.isArray(parsed)) {
+        results.push(...parsed);
+      } else {
+        results.push(parsed);
+      }
+    }
+    return results;
   }
 
   private loadLocalStories(): Story[] {
     const storiesPath = path.join(this.source.location.path!, 'stories');
     const files = fs.readdirSync(storiesPath).filter(f => f.endsWith('.json'));
-    return files.map(file => {
+    const results: Story[] = [];
+    for (const file of files) {
       const content = fs.readFileSync(path.join(storiesPath, file), 'utf8');
-      return JSON.parse(content) as Story;
-    });
+      const parsed = JSON.parse(content);
+      if (Array.isArray(parsed)) {
+        results.push(...parsed);
+      } else {
+        results.push(parsed);
+      }
+    }
+    return results;
   }
 }

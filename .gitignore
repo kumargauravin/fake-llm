@@ -1,8 +1,10 @@
 node_modules/
 dist/
 build/
+out/
 .next/
 .turbo/
+.nx/
 .angular/
 coverage/
 *.log

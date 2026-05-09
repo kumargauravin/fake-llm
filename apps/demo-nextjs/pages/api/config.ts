@@ -9,14 +9,10 @@ async function getLLM(): Promise<MockLLM> {
     llm = new MockLLM({
       configSource: {
         type: 'local',
-        location: {
-          path: path.join(process.cwd(), 'config')
-        }
+        location: { path: path.join(process.cwd(), 'config') }
       },
       connections: {
-        mockCosmos: {
-          basePath: path.join(process.cwd(), 'mock-db')
-        }
+        mockCosmos: { basePath: path.join(process.cwd(), 'mock-db') }
       }
     });
     await llm.initialize();
@@ -25,22 +21,19 @@ async function getLLM(): Promise<MockLLM> {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed. Use POST.' });
-  }
-
-  const { query } = req.body;
-
-  if (!query || typeof query !== 'string') {
-    return res.status(400).json({ error: 'Missing or invalid query parameter.' });
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Method not allowed. Use GET.' });
   }
 
   try {
     const agent = await getLLM();
-    const answer = await agent.query(query, { debug: true });
-    return res.status(200).json(answer);
+    return res.status(200).json({
+      keywords: agent.getKeywords(),
+      stories: agent.getStories(),
+      dataSources: agent.listDataSources()
+    });
   } catch (error: any) {
-    console.error('MockLLM query error:', error);
+    console.error('Config API error:', error);
     return res.status(500).json({ error: error.message || 'Internal server error' });
   }
 }

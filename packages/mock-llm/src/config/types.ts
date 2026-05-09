@@ -88,6 +88,45 @@ export interface Intent {
   confidence: number;
 }
 
+export interface QueryParams {
+  source: string;
+  filters?: Record<string, any>;
+  limit?: number;
+  orderBy?: string;
+}
+
+export interface AnswerDebugStep {
+  step: number;
+  action: string;
+  source?: string;
+  queryParams?: QueryParams;
+  builtFilter?: string;
+  rowsReturned: number;
+  sampleRows: any[];
+}
+
+export interface AnswerDebug {
+  rawQuery: string;
+  intent: Intent;
+  resolvedKeywords: KeywordEntry[];
+  unresolvedTerms: string[];
+  storyCandidates: Array<{
+    storyId: string;
+    score: number;
+    matchedKeywords: string[];
+    storyKeywords: string[];
+  }>;
+  selectedStory?: { storyId: string; score: number };
+  threshold: number;
+  decision:
+    | 'matched-story'
+    | 'no-story-fallback-llm'
+    | 'no-story-no-results'
+    | 'fallback-llm-error';
+  steps: AnswerDebugStep[];
+  totals: { results: number; durationMs: number };
+}
+
 /**
  * Resolved answer from the engine
  */
@@ -100,4 +139,5 @@ export interface Answer {
     execution_time_ms: number;
     source: 'mock-llm' | 'fallback-llm';
   };
+  debug?: AnswerDebug;
 }
