@@ -1,0 +1,13 @@
+{
+  "keyword": "weather",
+  "aliases": ["rain", "sunny", "clouds", "atmosphere"],
+  "category": "science",
+  "data_source": "knowledge/science",
+  "schema": {
+    "id": "string",
+    "question": "string",
+    "answer": "string",
+    "topic": "string",
+    "tags": "string[]"
+  }
+}

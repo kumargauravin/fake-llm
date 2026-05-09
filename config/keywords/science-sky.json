@@ -1,0 +1,13 @@
+{
+  "keyword": "sky",
+  "aliases": ["blue sky", "why is the sky blue", "sky color", "atmosphere"],
+  "category": "science",
+  "data_source": "knowledge/science",
+  "schema": {
+    "id": "string",
+    "question": "string",
+    "answer": "string",
+    "topic": "string",
+    "tags": "string[]"
+  }
+}

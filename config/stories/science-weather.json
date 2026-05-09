@@ -1,0 +1,14 @@
+{
+  "story_id": "science-weather-001",
+  "description": "Answers basic weather and atmosphere questions.",
+  "keywords": ["weather", "atmosphere", "clouds"],
+  "relations": [],
+  "resolution_steps": [
+    {
+      "step": 1,
+      "action": "fetch",
+      "keyword": "weather",
+      "from_source": "knowledge/science"
+    }
+  ]
+}
