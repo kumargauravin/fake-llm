@@ -8,12 +8,13 @@ describe('MockLLM Integration', () => {
     llm = new MockLLM({
       configSource: {
         type: 'local',
-        basePath: path.join(__dirname, '../../demo-nextjs/config')
+        location: {
+          path: path.join(__dirname, '../../../apps/demo-nextjs/config')
+        }
       },
       connections: {
         mockCosmos: {
-          dataPath: path.join(__dirname, '../../demo-nextjs/mock-db/learnings'),
-          container: 'habits'
+          basePath: path.join(__dirname, '../../../apps/demo-nextjs/mock-db')
         }
       }
     });
@@ -34,7 +35,7 @@ describe('MockLLM Integration', () => {
   });
 
   it('should handle unknown query gracefully', async () => {
-    const answer = await llm.query('what is the weather today');
+    const answer = await llm.query('what is the color of the ocean floor');
     expect(answer).toBeDefined();
     expect(answer.results.length).toBe(0);
     expect(answer.summary).toContain("couldn't find");
@@ -43,5 +44,26 @@ describe('MockLLM Integration', () => {
   it('should return execution time in metadata', async () => {
     const answer = await llm.query('show me all skills');
     expect(answer.metadata.execution_time_ms).toBeGreaterThanOrEqual(0);
+  });
+
+  it('should include debug block when debug=true', async () => {
+    const answer = await llm.query('list all habits', { debug: true });
+    expect(answer.debug).toBeDefined();
+    expect(answer.debug?.rawQuery).toBe('list all habits');
+    expect(answer.debug?.threshold).toBe(0.1);
+  });
+
+  it('should not include debug block when debug=false', async () => {
+    const answer = await llm.query('list all habits', { debug: false });
+    expect(answer.debug).toBeUndefined();
+  });
+
+  it('should return keywords and stories via introspection', () => {
+    const keywords = llm.getKeywords();
+    const stories = llm.getStories();
+    const sources = llm.listDataSources();
+    expect(keywords.length).toBeGreaterThan(0);
+    expect(stories.length).toBeGreaterThan(0);
+    expect(sources.length).toBeGreaterThan(0);
   });
 });

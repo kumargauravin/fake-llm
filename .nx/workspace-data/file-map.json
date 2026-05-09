@@ -1,0 +1,320 @@
+{
+  "version": "6.0",
+  "nxVersion": "19.8.14",
+  "deps": {
+    "@nx/js": "^19.0.0",
+    "nx": "^19.0.0",
+    "typescript": "^5.4.5"
+  },
+  "pathMappings": {
+    "mock-llm": [
+      "packages/mock-llm/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "demo-nextjs": [
+        {
+          "file": "apps/demo-nextjs/config/keywords/habit.json",
+          "hash": "8423980161091077891"
+        },
+        {
+          "file": "apps/demo-nextjs/config/keywords/science-matter.json",
+          "hash": "10149012644372217168"
+        },
+        {
+          "file": "apps/demo-nextjs/config/keywords/science-sky.json",
+          "hash": "8201579033948335468"
+        },
+        {
+          "file": "apps/demo-nextjs/config/keywords/science-weather.json",
+          "hash": "4362086897139966926"
+        },
+        {
+          "file": "apps/demo-nextjs/config/stories/habit-stories.json",
+          "hash": "17215330768305367645"
+        },
+        {
+          "file": "apps/demo-nextjs/config/stories/science-matter.json",
+          "hash": "6454041003135387798"
+        },
+        {
+          "file": "apps/demo-nextjs/config/stories/science-sky.json",
+          "hash": "10659020925325625020"
+        },
+        {
+          "file": "apps/demo-nextjs/config/stories/science-weather.json",
+          "hash": "14647627908298332710"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/knowledge/science/matter-gravity.json",
+          "hash": "3600466347777670168"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/knowledge/science/matter-water.json",
+          "hash": "16072273251273984700"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/knowledge/science/sky-stars-night.json",
+          "hash": "10233390057968214505"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/knowledge/science/sky-sunset-red.json",
+          "hash": "16344251917328996311"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/knowledge/science/sky-why-blue.json",
+          "hash": "2382047091838598052"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/knowledge/science/weather-why-clouds.json",
+          "hash": "1327330994069794131"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/knowledge/science/weather-why-rain.json",
+          "hash": "7985771927363418280"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/knowledge/science/weather-why-wind.json",
+          "hash": "17661748134651034144"
+        },
+        {
+          "file": "apps/demo-nextjs/mock-db/learnings/habits.json",
+          "hash": "9151384737343886435"
+        },
+        {
+          "file": "apps/demo-nextjs/next.config.js",
+          "hash": "8542611809175736569"
+        },
+        {
+          "file": "apps/demo-nextjs/package.json",
+          "hash": "1370995965357459128",
+          "deps": [
+            "@nice-tools/mock-llm"
+          ]
+        },
+        {
+          "file": "apps/demo-nextjs/pages/api/config.ts",
+          "hash": "2637257680729769078"
+        },
+        {
+          "file": "apps/demo-nextjs/pages/api/query.ts",
+          "hash": "9334159459391084862"
+        },
+        {
+          "file": "apps/demo-nextjs/pages/api/snapshot.ts",
+          "hash": "16827427944291379632"
+        },
+        {
+          "file": "apps/demo-nextjs/pages/index.tsx",
+          "hash": "2957865894716635898"
+        }
+      ],
+      "@nice-tools/mock-llm": [
+        {
+          "file": "packages/mock-llm/CHANGELOG.md",
+          "hash": "6838967283326954905"
+        },
+        {
+          "file": "packages/mock-llm/jest.config.js",
+          "hash": "13603806964404841286"
+        },
+        {
+          "file": "packages/mock-llm/package.json",
+          "hash": "3308372095827542977"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/base.adapter.ts",
+          "hash": "5043031038019101369"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/blob.adapter.ts",
+          "hash": "11187597734711827706"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/cosmos.adapter.ts",
+          "hash": "6484543636550857127"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/gcs.adapter.ts",
+          "hash": "17280143539756908645"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/image.adapter.ts",
+          "hash": "4642626440225447586"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/mock-cosmos.adapter.ts",
+          "hash": "14522882964543583811"
+        },
+        {
+          "file": "packages/mock-llm/src/config/loader.ts",
+          "hash": "11939012740138249532"
+        },
+        {
+          "file": "packages/mock-llm/src/config/types.ts",
+          "hash": "230203285988848808"
+        },
+        {
+          "file": "packages/mock-llm/src/config/validator.ts",
+          "hash": "8302602165430628647"
+        },
+        {
+          "file": "packages/mock-llm/src/engine/keyword-resolver.ts",
+          "hash": "2138271890067699538"
+        },
+        {
+          "file": "packages/mock-llm/src/engine/nlp-matcher.ts",
+          "hash": "3167388844690629362"
+        },
+        {
+          "file": "packages/mock-llm/src/engine/query-builder.ts",
+          "hash": "10146714859222540295"
+        },
+        {
+          "file": "packages/mock-llm/src/engine/response-builder.ts",
+          "hash": "8856202976092339064"
+        },
+        {
+          "file": "packages/mock-llm/src/engine/story-resolver.ts",
+          "hash": "14313359412508845940"
+        },
+        {
+          "file": "packages/mock-llm/src/index.ts",
+          "hash": "17434932908133442166"
+        },
+        {
+          "file": "packages/mock-llm/src/mock-llm.ts",
+          "hash": "15085793175927096380"
+        },
+        {
+          "file": "packages/mock-llm/tests/adapters.test.ts",
+          "hash": "3837994768120266872"
+        },
+        {
+          "file": "packages/mock-llm/tests/integration.test.ts",
+          "hash": "10294649036984686337"
+        },
+        {
+          "file": "packages/mock-llm/tests/nlp-matcher.test.ts",
+          "hash": "4461305751696505839"
+        },
+        {
+          "file": "packages/mock-llm/tests/story-resolver.test.ts",
+          "hash": "4488073073092792778"
+        },
+        {
+          "file": "packages/mock-llm/tsconfig.json",
+          "hash": "9563584826986310649"
+        },
+        {
+          "file": "packages/mock-llm/tsup.config.ts",
+          "hash": "12950122814674526016"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".env.example",
+        "hash": "18263285124643594669"
+      },
+      {
+        "file": ".github/workflows/create-release-tag.yml",
+        "hash": "7250862274752866883"
+      },
+      {
+        "file": ".github/workflows/deploy-pages.yml",
+        "hash": "7769533224053314972"
+      },
+      {
+        "file": ".github/workflows/publish-npm.yml",
+        "hash": "7934625167163351769"
+      },
+      {
+        "file": ".github/workflows/trigger-deploy.yml",
+        "hash": "15063097927025742181"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "8900337824098866112"
+      },
+      {
+        "file": "PUBLISHING.md",
+        "hash": "10801695621345598788"
+      },
+      {
+        "file": "README.md",
+        "hash": "4878508128894746676"
+      },
+      {
+        "file": "config/keywords/science-sky.json",
+        "hash": "8201579033948335468"
+      },
+      {
+        "file": "config/keywords/science-weather.json",
+        "hash": "4362086897139966926"
+      },
+      {
+        "file": "config/stories/science-sky.json",
+        "hash": "10659020925325625020"
+      },
+      {
+        "file": "config/stories/science-weather.json",
+        "hash": "14647627908298332710"
+      },
+      {
+        "file": "docs/requests.md",
+        "hash": "7236370083972904788"
+      },
+      {
+        "file": "mock-db/knowledge/science/matter-gravity.json",
+        "hash": "3600466347777670168"
+      },
+      {
+        "file": "mock-db/knowledge/science/matter-water.json",
+        "hash": "16072273251273984700"
+      },
+      {
+        "file": "mock-db/knowledge/science/sky-stars-night.json",
+        "hash": "10233390057968214505"
+      },
+      {
+        "file": "mock-db/knowledge/science/sky-sunset-red.json",
+        "hash": "16344251917328996311"
+      },
+      {
+        "file": "mock-db/knowledge/science/sky-why-blue.json",
+        "hash": "2382047091838598052"
+      },
+      {
+        "file": "mock-db/knowledge/science/weather-why-clouds.json",
+        "hash": "1327330994069794131"
+      },
+      {
+        "file": "mock-db/knowledge/science/weather-why-rain.json",
+        "hash": "7985771927363418280"
+      },
+      {
+        "file": "mock-db/knowledge/science/weather-why-wind.json",
+        "hash": "17661748134651034144"
+      },
+      {
+        "file": "nx.json",
+        "hash": "17369498828539639463"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "3161385965130588532"
+      },
+      {
+        "file": "package.json",
+        "hash": "500998245571121690"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3254276131437533034"
+      }
+    ]
+  }
+}

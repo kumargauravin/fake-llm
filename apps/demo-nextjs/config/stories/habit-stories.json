@@ -1,66 +1,77 @@
 [
   {
-    "id": "story_habit_001",
-    "name": "List all habits",
-    "keywords": ["habit", "routine"],
+    "story_id": "story_habit_001",
+    "description": "List all habits",
+    "keywords": ["habit"],
+    "relations": [],
     "resolution_steps": [
       {
+        "step": 1,
         "action": "fetch",
-        "from_source": "habits"
+        "keyword": "habit",
+        "from_source": "learnings/habits"
       }
     ]
   },
   {
-    "id": "story_habit_002",
-    "name": "Find habits by category",
-    "keywords": ["habit", "category", "fitness", "learning", "mindfulness", "hygiene"],
+    "story_id": "story_habit_002",
+    "description": "Find habits by category",
+    "keywords": ["habit", "fitness"],
+    "relations": [],
     "resolution_steps": [
       {
+        "step": 1,
         "action": "fetch",
-        "from_source": "habits",
-        "filter_by": "category"
+        "keyword": "habit",
+        "from_source": "learnings/habits"
       }
     ]
   },
   {
-    "id": "story_habit_003",
-    "name": "Compare two habits",
-    "keywords": ["habit", "compare"],
+    "story_id": "story_habit_003",
+    "description": "Compare two habits",
+    "keywords": ["habit"],
+    "relations": [],
     "resolution_steps": [
       {
+        "step": 1,
         "action": "fetch",
-        "from_source": "habits"
+        "keyword": "habit",
+        "from_source": "learnings/habits"
       },
       {
+        "step": 2,
         "action": "compare",
-        "from_source": "habits"
+        "keyword": "habit",
+        "from_source": "learnings/habits"
       }
     ]
   },
   {
-    "id": "story_habit_004",
-    "name": "Explain a habit",
+    "story_id": "story_habit_004",
+    "description": "Explain a habit including streak and frequency",
     "keywords": ["habit", "streak", "frequency"],
+    "relations": [],
     "resolution_steps": [
       {
+        "step": 1,
         "action": "fetch",
-        "from_source": "habits"
-      },
-      {
-        "action": "explain",
-        "from_source": "habits"
+        "keyword": "habit",
+        "from_source": "learnings/habits"
       }
     ]
   },
   {
-    "id": "story_habit_005",
-    "name": "Find habits by streak",
+    "story_id": "story_habit_005",
+    "description": "Find habits by streak",
     "keywords": ["habit", "streak"],
+    "relations": [],
     "resolution_steps": [
       {
+        "step": 1,
         "action": "fetch",
-        "from_source": "habits",
-        "filter_by": "streak"
+        "keyword": "habit",
+        "from_source": "learnings/habits"
       }
     ]
   }

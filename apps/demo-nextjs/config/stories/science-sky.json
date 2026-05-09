@@ -1,0 +1,14 @@
+{
+  "story_id": "science-sky-001",
+  "description": "Answers basic science questions about why the sky is blue.",
+  "keywords": ["sky"],
+  "relations": [],
+  "resolution_steps": [
+    {
+      "step": 1,
+      "action": "fetch",
+      "keyword": "sky",
+      "from_source": "knowledge/science"
+    }
+  ]
+}

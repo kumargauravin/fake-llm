@@ -3,22 +3,24 @@ import { Story, Intent, KeywordEntry } from '../src/config/types';
 
 const mockStories: Story[] = [
   {
-    id: 'story_001',
-    name: 'List habits',
+    story_id: 'story_001',
+    description: 'List habits',
     keywords: ['habit', 'routine'],
-    resolution_steps: [{ action: 'fetch', from_source: 'habits' }]
+    relations: [],
+    resolution_steps: [{ step: 1, action: 'fetch', from_source: 'learnings/habits' }]
   },
   {
-    id: 'story_002',
-    name: 'Compare habits',
+    story_id: 'story_002',
+    description: 'Compare habits',
     keywords: ['habit', 'compare'],
-    resolution_steps: [{ action: 'compare', from_source: 'habits' }]
+    relations: [],
+    resolution_steps: [{ step: 1, action: 'compare', from_source: 'learnings/habits' }]
   }
 ];
 
 const mockKeywords: KeywordEntry[] = [
-  { keyword: 'habit', category: 'entity', aliases: ['routine'] },
-  { keyword: 'compare', category: 'action', aliases: ['diff'] }
+  { keyword: 'habit', category: 'entity', aliases: ['routine'], data_source: 'learnings/habits' },
+  { keyword: 'compare', category: 'action', aliases: ['diff'], data_source: 'learnings/habits' }
 ];
 
 describe('StoryResolver', () => {
@@ -33,7 +35,7 @@ describe('StoryResolver', () => {
     const resolved: KeywordEntry[] = [mockKeywords[0]];
     const match = resolver.findBestStory(intent, resolved);
     expect(match).toBeDefined();
-    expect(match?.story.id).toBe('story_001');
+    expect(match?.story.story_id).toBe('story_001');
   });
 
   it('should find compare story when compare intent given', () => {
@@ -41,12 +43,20 @@ describe('StoryResolver', () => {
     const resolved: KeywordEntry[] = [mockKeywords[0], mockKeywords[1]];
     const match = resolver.findBestStory(intent, resolved);
     expect(match).toBeDefined();
-    expect(match?.story.id).toBe('story_002');
+    expect(match?.story.story_id).toBe('story_002');
   });
 
   it('should return undefined when no story matches', () => {
     const intent: Intent = { action: 'list', keywords: ['unknown'], filters: {}, confidence: 0.3 };
     const match = resolver.findBestStory(intent, []);
     expect(match).toBeUndefined();
+  });
+
+  it('should return all story candidates via scoreAll', () => {
+    const intent: Intent = { action: 'list', keywords: ['habit'], filters: {}, confidence: 0.8 };
+    const resolved: KeywordEntry[] = [mockKeywords[0]];
+    const candidates = resolver.scoreAll(intent, resolved);
+    expect(candidates.length).toBe(2);
+    expect(candidates[0].score).toBeGreaterThanOrEqual(candidates[1].score);
   });
 });

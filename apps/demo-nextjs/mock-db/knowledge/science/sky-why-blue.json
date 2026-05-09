@@ -1,0 +1,7 @@
+{
+  "id": "sky-why-blue",
+  "question": "Why is the sky blue?",
+  "answer": "The sky looks blue because of Rayleigh scattering. Molecules in the atmosphere scatter shorter blue wavelengths of sunlight more than longer red wavelengths, making the sky appear blue to our eyes.",
+  "topic": "science",
+  "tags": ["sky", "blue", "atmosphere", "light", "rayleigh"]
+}

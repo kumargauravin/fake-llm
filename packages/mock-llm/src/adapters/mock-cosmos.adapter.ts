@@ -16,20 +16,31 @@ export class MockCosmosAdapter extends BaseAdapter {
   }
 
   async query(params: QueryParams): Promise<any[]> {
-    // params.source should be "databaseId/containerId"
-    const [dbId, containerId] = params.source.split('/');
-    const containerPath = path.join(this.options.basePath, dbId, containerId);
+    // params.source should be "databaseId/containerId" or just "containerId"
+    const parts = params.source.split('/');
+    const containerPath = path.join(this.options.basePath, ...parts);
 
-    if (!fs.existsSync(containerPath)) {
-      console.warn(`MockCosmosAdapter: Path not found: ${containerPath}`);
-      return [];
+    let items: any[] = [];
+
+    if (fs.existsSync(containerPath) && fs.statSync(containerPath).isDirectory()) {
+      // Directory of individual JSON files (mock-cosmos style)
+      const files = fs.readdirSync(containerPath).filter(f => f.endsWith('.json'));
+      items = files.map(file => {
+        const content = fs.readFileSync(path.join(containerPath, file), 'utf8');
+        return JSON.parse(content);
+      });
+    } else {
+      // Try a single JSON file containing an array (e.g. learnings/habits.json)
+      const filePath = containerPath + '.json';
+      if (fs.existsSync(filePath)) {
+        const content = fs.readFileSync(filePath, 'utf8');
+        const parsed = JSON.parse(content);
+        items = Array.isArray(parsed) ? parsed : [parsed];
+      } else {
+        console.warn(`MockCosmosAdapter: Path not found: ${containerPath}`);
+        return [];
+      }
     }
-
-    const files = fs.readdirSync(containerPath).filter(f => f.endsWith('.json'));
-    let items = files.map(file => {
-      const content = fs.readFileSync(path.join(containerPath, file), 'utf8');
-      return JSON.parse(content);
-    });
 
     // Apply filters
     if (params.filters && Object.keys(params.filters).length > 0) {

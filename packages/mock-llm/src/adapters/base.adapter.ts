@@ -1,3 +1,5 @@
+import { QueryParams } from '../config/types';
+
 /**
  * Base adapter interface for data sources
  */
@@ -6,12 +8,7 @@ export interface IDataAdapter {
   getById(id: string): Promise<any>;
 }
 
-export interface QueryParams {
-  source: string;
-  filters?: Record<string, any>;
-  limit?: number;
-  orderBy?: string;
-}
+export { QueryParams };
 
 export abstract class BaseAdapter implements IDataAdapter {
   abstract query(params: QueryParams): Promise<any[]>;

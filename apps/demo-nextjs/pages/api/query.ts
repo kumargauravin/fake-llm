@@ -37,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const agent = await getLLM();
-    const answer = await agent.query(query);
+    const answer = await agent.query(query, { debug: true });
     return res.status(200).json(answer);
   } catch (error: any) {
     console.error('MockLLM query error:', error);

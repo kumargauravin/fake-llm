@@ -1,0 +1,13 @@
+{
+  "keyword": "gravity",
+  "aliases": ["what is gravity", "gravitational force", "gravity force", "mass attraction"],
+  "category": "science",
+  "data_source": "knowledge/science",
+  "schema": {
+    "id": "string",
+    "question": "string",
+    "answer": "string",
+    "topic": "string",
+    "tags": "string[]"
+  }
+}

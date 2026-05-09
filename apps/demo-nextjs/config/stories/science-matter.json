@@ -1,0 +1,14 @@
+{
+  "story_id": "science-matter-001",
+  "description": "Answers questions about matter, physics, water and gravity.",
+  "keywords": ["gravity"],
+  "relations": [],
+  "resolution_steps": [
+    {
+      "step": 1,
+      "action": "fetch",
+      "keyword": "gravity",
+      "from_source": "knowledge/science"
+    }
+  ]
+}

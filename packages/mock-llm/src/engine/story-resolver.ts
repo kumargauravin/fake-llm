@@ -6,8 +6,30 @@ export interface StoryMatch {
   matchedKeywords: string[];
 }
 
+export interface StoryScore {
+  storyId: string;
+  score: number;
+  matchedKeywords: string[];
+  storyKeywords: string[];
+}
+
+export const STORY_THRESHOLD = 0.1;
+
 export class StoryResolver {
   constructor(private stories: Story[]) {}
+
+  scoreAll(intent: Intent, resolvedKeywords: KeywordEntry[]): StoryScore[] {
+    return this.stories
+      .map(story => {
+        const score = this.scoreStory(story, intent, resolvedKeywords);
+        const matchedKeywords = resolvedKeywords
+          .filter(kw => story.keywords.includes(kw.keyword))
+          .map(kw => kw.keyword);
+        const storyId = (story as any).story_id || (story as any).id || '';
+        return { storyId, score, matchedKeywords, storyKeywords: story.keywords };
+      })
+      .sort((a, b) => b.score - a.score);
+  }
 
   findBestStory(intent: Intent, resolvedKeywords: KeywordEntry[]): StoryMatch | undefined {
     const matches = this.stories.map(story => {
@@ -20,8 +42,7 @@ export class StoryResolver {
 
     matches.sort((a, b) => b.score - a.score);
     const best = matches[0];
-    // Lowered threshold from 0.3 to 0.1 so single-keyword stories match
-    return best && best.score > 0.1 ? best : undefined;
+    return best && best.score > STORY_THRESHOLD ? best : undefined;
   }
 
   private scoreStory(story: Story, intent: Intent, resolvedKeywords: KeywordEntry[]): number {
