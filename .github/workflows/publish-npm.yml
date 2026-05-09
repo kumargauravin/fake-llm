@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*.*.*'
+  workflow_dispatch:
 
 jobs:
   publish:
@@ -21,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: packages/mock-llm
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build package
         working-directory: packages/mock-llm
