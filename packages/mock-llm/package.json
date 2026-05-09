@@ -1,5 +1,5 @@
 {
-  "name": "mock-llm",
+  "name": "@nice-tools/mock-llm",
   "version": "1.0.0",
   "description": "Configuration-driven natural language query engine with zero LLM costs",
   "main": "./dist/index.cjs",
@@ -26,10 +26,14 @@
     "configuration-driven",
     "zero-llm",
     "natural-language",
-    "query-engine"
+    "query-engine",
+    "nice-tools"
   ],
   "author": "kumargauravin",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@azure/cosmos": "^4.0.0",
     "@azure/storage-blob": "^12.17.0",
