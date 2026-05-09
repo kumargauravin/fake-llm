@@ -1,0 +1,8 @@
+# Next.js build artifacts
+.next/
+out/
+node_modules/
+*.log
+.env
+.env.local
+next-env.d.ts
