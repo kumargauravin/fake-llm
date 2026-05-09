@@ -4,6 +4,7 @@ build/
 out/
 .next/
 .turbo/
+.nx/
 .angular/
 coverage/
 *.log
