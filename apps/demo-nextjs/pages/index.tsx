@@ -45,6 +45,8 @@ import BugReportIcon from '@mui/icons-material/BugReport';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
+import { AgGridReact } from 'ag-grid-react';
+import type { ColDef } from 'ag-grid-community';
 
 // Types
 interface DebugStep {
@@ -104,6 +106,13 @@ interface ConfigData {
   keywords: KeywordEntry[];
   stories: any[];
   dataSources: string[];
+  module?: {
+    show_debug: boolean;
+    connections: {
+      mockCosmos?: { basePath: string };
+      mockStorage?: { basePath: string };
+    };
+  };
 }
 
 // Constants
@@ -139,6 +148,12 @@ function Inspector({ answer, configData, open }: { answer: LLMAnswer | null; con
   const [snapshotLoading, setSnapshotLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const debug = answer?.debug;
+  const showDebug = configData?.module?.show_debug !== false;
+  const keywordColumnDefs: ColDef[] = [
+    { field: 'keyword', headerName: 'Keyword', flex: 1.1, minWidth: 140 },
+    { field: 'category', headerName: 'Category', flex: 1, minWidth: 120 },
+    { field: 'data_source', headerName: 'Source', flex: 1.5, minWidth: 170 }
+  ];
 
   const loadSnapshot = useCallback(async (src: string) => {
     if (!src) return;
@@ -170,16 +185,18 @@ function Inspector({ answer, configData, open }: { answer: LLMAnswer | null; con
   return (
     <Box sx={{ width: INSPECTOR_WIDTH, flexShrink: 0, display: 'flex', flexDirection: 'column', borderLeft: 1, borderColor: 'divider', height: '100%', overflowY: 'hidden' }}>
       <Typography variant="subtitle2" sx={{ px: 2, pt: 1.5, pb: 0.5, fontWeight: 700 }}>🔍 Inspector</Typography>
-      <Tabs value={tab} onChange={(_, v) => setTab(v)} variant="scrollable" scrollButtons="auto" sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tab label="🧠 Engine" />
-        <Tab label="⚙️ Config" />
-        <Tab label="🗄️ Data" />
-        <Tab label="📋 JSON" />
+      <Tabs value={tab} onChange={(_, v) => setTab(v)} variant="fullWidth" sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tab label="💬 Chat & Debug" />
+        <Tab label="⚙️ Config & Storage" />
       </Tabs>
 
-      {/* Engine Tab */}
+      {/* Chat + Debug Tab */}
       <TabPanel value={tab} index={0}>
-        {!debug ? (
+        {!showDebug ? (
+          <Typography color="text.secondary" variant="body2">
+            Debug panel is disabled by module setting: <strong>show_debug = false</strong>.
+          </Typography>
+        ) : !debug ? (
           <Typography color="text.secondary" variant="body2">
             Click the 🔍 Inspect button on an assistant message to see engine details.
           </Typography>
@@ -259,41 +276,57 @@ function Inspector({ answer, configData, open }: { answer: LLMAnswer | null; con
               <Typography variant="caption" color="text.secondary">Results: <strong>{debug.totals.results}</strong></Typography>
               <Typography variant="caption" color="text.secondary">Duration: <strong>{debug.totals.durationMs}ms</strong></Typography>
             </Box>
+            <Divider />
+            <Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                <Typography variant="caption" color="text.secondary">Raw answer JSON</Typography>
+                <Tooltip title={copied ? 'Copied!' : 'Copy JSON'}>
+                  <IconButton size="small" onClick={handleCopy}><ContentCopyIcon fontSize="small" /></IconButton>
+                </Tooltip>
+              </Box>
+              {answer ? (
+                <Box component="pre" sx={{ fontSize: 11, overflowX: 'auto', bgcolor: 'action.hover', p: 1.5, borderRadius: 1, m: 0 }}>
+                  {JSON.stringify(answer, null, 2)}
+                </Box>
+              ) : (
+                <Typography color="text.secondary" variant="body2">No answer selected.</Typography>
+              )}
+            </Box>
           </Box>
         )}
       </TabPanel>
 
-      {/* Config Tab */}
+      {/* Config + Storage Tab */}
       <TabPanel value={tab} index={1}>
         {!configData ? (
           <Typography color="text.secondary" variant="body2">Loading config…</Typography>
         ) : (
           <Box>
+            <Paper variant="outlined" sx={{ p: 1.5, mb: 2 }}>
+              <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>Module Settings</Typography>
+              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 1 }}>
+                <Chip size="small" color={configData.module?.show_debug ? 'success' : 'default'} label={`show_debug: ${String(configData.module?.show_debug ?? true)}`} />
+                <Chip size="small" variant="outlined" label={`mockCosmos: ${configData.module?.connections?.mockCosmos?.basePath || 'n/a'}`} />
+                <Chip size="small" variant="outlined" label={`mockStorage: ${configData.module?.connections?.mockStorage?.basePath || 'n/a'}`} />
+              </Box>
+              <Typography variant="caption" color="text.secondary">
+                Demo references both mock cosmos data and mock storage output paths for visibility.
+              </Typography>
+            </Paper>
             <Accordion defaultExpanded>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="body2" sx={{ fontWeight: 700 }}>Keywords ({configData.keywords.length})</Typography>
               </AccordionSummary>
-              <AccordionDetails sx={{ p: 0 }}>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell sx={{ fontSize: 11 }}>Keyword</TableCell>
-                      <TableCell sx={{ fontSize: 11 }}>Category</TableCell>
-                      <TableCell sx={{ fontSize: 11 }}>Source</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {configData.keywords.map(kw => (
-                      <Tooltip key={kw.keyword} title={`Aliases: ${kw.aliases.join(', ')}`}>
-                        <TableRow hover>
-                          <TableCell sx={{ fontSize: 11 }}>{kw.keyword}</TableCell>
-                          <TableCell sx={{ fontSize: 11 }}>{kw.category}</TableCell>
-                          <TableCell sx={{ fontSize: 11 }}>{kw.data_source || '—'}</TableCell>
-                        </TableRow>
-                      </Tooltip>
-                    ))}
-                  </TableBody>
-                </Table>
+              <AccordionDetails sx={{ p: 1 }}>
+                <Box className="ag-theme-alpine" sx={{ height: 260, width: '100%' }}>
+                  <AgGridReact
+                    rowData={configData.keywords}
+                    columnDefs={keywordColumnDefs}
+                    pagination
+                    paginationPageSize={8}
+                    domLayout="normal"
+                  />
+                </Box>
               </AccordionDetails>
             </Accordion>
             <Accordion>
@@ -316,53 +349,35 @@ function Inspector({ answer, configData, open }: { answer: LLMAnswer | null; con
                 ))}
               </AccordionDetails>
             </Accordion>
+            <Divider sx={{ my: 2 }} />
+            <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>Mock Cosmos Snapshot</Typography>
+            <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+              <InputLabel>Data Source</InputLabel>
+              <Select
+                value={snapshotSource}
+                label="Data Source"
+                onChange={e => { setSnapshotSource(e.target.value as string); loadSnapshot(e.target.value as string); }}
+              >
+                {(configData.dataSources || []).map(src => <MenuItem key={src} value={src}>{src}</MenuItem>)}
+              </Select>
+            </FormControl>
+            {snapshotLoading && <CircularProgress size={24} />}
+            {!snapshotLoading && snapshotRows.length > 0 && (
+              <Box>
+                <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: 'block' }}>
+                  {snapshotRows.length} rows from <strong>{snapshotSource}</strong>
+                </Typography>
+                {snapshotRows.map((row, i) => (
+                  <Paper key={i} variant="outlined" sx={{ p: 1.5, mb: 1, fontFamily: 'monospace', fontSize: 11, overflowX: 'auto' }}>
+                    <Box component="pre" sx={{ m: 0 }}>{JSON.stringify(row, null, 2)}</Box>
+                  </Paper>
+                ))}
+              </Box>
+            )}
+            {!snapshotLoading && snapshotSource && snapshotRows.length === 0 && (
+              <Typography color="text.secondary" variant="body2">No rows found.</Typography>
+            )}
           </Box>
-        )}
-      </TabPanel>
-
-      {/* Data Source Tab */}
-      <TabPanel value={tab} index={2}>
-        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
-          <InputLabel>Data Source</InputLabel>
-          <Select
-            value={snapshotSource}
-            label="Data Source"
-            onChange={e => { setSnapshotSource(e.target.value as string); loadSnapshot(e.target.value as string); }}
-          >
-            {(configData?.dataSources || []).map(src => <MenuItem key={src} value={src}>{src}</MenuItem>)}
-          </Select>
-        </FormControl>
-        {snapshotLoading && <CircularProgress size={24} />}
-        {!snapshotLoading && snapshotRows.length > 0 && (
-          <Box>
-            <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: 'block' }}>
-              {snapshotRows.length} rows from <strong>{snapshotSource}</strong>
-            </Typography>
-            {snapshotRows.map((row, i) => (
-              <Paper key={i} variant="outlined" sx={{ p: 1.5, mb: 1, fontFamily: 'monospace', fontSize: 11, overflowX: 'auto' }}>
-                <Box component="pre" sx={{ m: 0 }}>{JSON.stringify(row, null, 2)}</Box>
-              </Paper>
-            ))}
-          </Box>
-        )}
-        {!snapshotLoading && snapshotSource && snapshotRows.length === 0 && (
-          <Typography color="text.secondary" variant="body2">No rows found.</Typography>
-        )}
-      </TabPanel>
-
-      {/* Raw JSON Tab */}
-      <TabPanel value={tab} index={3}>
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}>
-          <Tooltip title={copied ? 'Copied!' : 'Copy JSON'}>
-            <IconButton size="small" onClick={handleCopy}><ContentCopyIcon fontSize="small" /></IconButton>
-          </Tooltip>
-        </Box>
-        {answer ? (
-          <Box component="pre" sx={{ fontSize: 11, overflowX: 'auto', bgcolor: 'action.hover', p: 1.5, borderRadius: 1, m: 0 }}>
-            {JSON.stringify(answer, null, 2)}
-          </Box>
-        ) : (
-          <Typography color="text.secondary" variant="body2">No answer selected.</Typography>
         )}
       </TabPanel>
     </Box>
@@ -380,7 +395,7 @@ function MessageBubble({ msg, onInspect }: { msg: ChatMessage; onInspect: (answe
         </Paper>
         <Box sx={{ display: 'flex', gap: 1, mt: 0.5, justifyContent: isUser ? 'flex-end' : 'flex-start', alignItems: 'center' }}>
           <Typography variant="caption" color="text.secondary">{formatTime(msg.timestamp)}</Typography>
-          {!isUser && msg.answer && (
+          {!isUser && msg.answer?.debug && (
             <Tooltip title="Inspect engine decisions">
               <IconButton size="small" onClick={() => onInspect(msg.answer!)} sx={{ p: 0.3 }}>
                 <BugReportIcon sx={{ fontSize: 14 }} />

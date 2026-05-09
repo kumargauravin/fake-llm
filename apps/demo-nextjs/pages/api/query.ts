@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
 import { MockLLM } from '@nice-tools/mock-llm';
+import { DEMO_MODULE } from '../../lib/demo-module';
 
 let llm: MockLLM | null = null;
 
@@ -15,7 +16,7 @@ async function getLLM(): Promise<MockLLM> {
       },
       connections: {
         mockCosmos: {
-          basePath: path.join(process.cwd(), 'mock-db')
+          basePath: path.join(process.cwd(), DEMO_MODULE.connections.mockCosmos.basePath)
         }
       }
     });
@@ -37,7 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const agent = await getLLM();
-    const answer = await agent.query(query, { debug: true });
+    const answer = await agent.query(query, { debug: DEMO_MODULE.show_debug });
     return res.status(200).json(answer);
   } catch (error: any) {
     console.error('MockLLM query error:', error);
