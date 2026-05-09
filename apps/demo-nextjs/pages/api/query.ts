@@ -9,12 +9,13 @@ async function getLLM(): Promise<MockLLM> {
     llm = new MockLLM({
       configSource: {
         type: 'local',
-        basePath: path.join(process.cwd(), 'config')
+        location: {
+          path: path.join(process.cwd(), 'config')
+        }
       },
       connections: {
         mockCosmos: {
-          dataPath: path.join(process.cwd(), 'mock-db/learnings'),
-          container: 'habits'
+          basePath: path.join(process.cwd(), 'mock-db')
         }
       }
     });
