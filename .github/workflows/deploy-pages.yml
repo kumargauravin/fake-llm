@@ -38,9 +38,7 @@ jobs:
 
       - name: Install demo app dependencies
         working-directory: apps/demo-nextjs
-        run: |
-          npm install --legacy-peer-deps --no-package-lock
-          npm update @nice-tools/mock-llm --legacy-peer-deps
+        run: npm install --legacy-peer-deps --no-package-lock @nice-tools/mock-llm@latest
 
       - name: Build & Export demo app
         working-directory: apps/demo-nextjs
