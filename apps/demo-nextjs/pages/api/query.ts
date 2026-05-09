@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
-import { MockLLM } from 'mock-llm';
+import { MockLLM } from '@nice-tools/mock-llm';
 
 let llm: MockLLM | null = null;
 
