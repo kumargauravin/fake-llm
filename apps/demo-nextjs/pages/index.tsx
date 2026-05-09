@@ -395,7 +395,7 @@ function MessageBubble({ msg, onInspect }: { msg: ChatMessage; onInspect: (answe
         </Paper>
         <Box sx={{ display: 'flex', gap: 1, mt: 0.5, justifyContent: isUser ? 'flex-end' : 'flex-start', alignItems: 'center' }}>
           <Typography variant="caption" color="text.secondary">{formatTime(msg.timestamp)}</Typography>
-          {!isUser && msg.answer?.debug && (
+          {!isUser && msg.answer && (
             <Tooltip title="Inspect engine decisions">
               <IconButton size="small" onClick={() => onInspect(msg.answer!)} sx={{ p: 0.3 }}>
                 <BugReportIcon sx={{ fontSize: 14 }} />
