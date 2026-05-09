@@ -14,7 +14,136 @@
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
+      "@nice-tools/mock-llm": [
+        {
+          "file": "packages/mock-llm/CHANGELOG.md",
+          "hash": "6838967283326954905"
+        },
+        {
+          "file": "packages/mock-llm/jest.config.js",
+          "hash": "13603806964404841286"
+        },
+        {
+          "file": "packages/mock-llm/package.json",
+          "hash": "3308372095827542977"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/base.adapter.ts",
+          "hash": "5043031038019101369"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/blob.adapter.ts",
+          "hash": "11187597734711827706",
+          "deps": [
+            "npm:@azure/storage-blob"
+          ]
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/cosmos.adapter.ts",
+          "hash": "6484543636550857127",
+          "deps": [
+            "npm:@azure/cosmos"
+          ]
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/gcs.adapter.ts",
+          "hash": "17280143539756908645",
+          "deps": [
+            "npm:@google-cloud/storage"
+          ]
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/image.adapter.ts",
+          "hash": "4642626440225447586"
+        },
+        {
+          "file": "packages/mock-llm/src/adapters/mock-cosmos.adapter.ts",
+          "hash": "14522882964543583811"
+        },
+        {
+          "file": "packages/mock-llm/src/config/loader.ts",
+          "hash": "11939012740138249532",
+          "deps": [
+            "npm:@azure/storage-blob",
+            "npm:@azure/cosmos",
+            "npm:@google-cloud/storage"
+          ]
+        },
+        {
+          "file": "packages/mock-llm/src/config/types.ts",
+          "hash": "230203285988848808"
+        },
+        {
+          "file": "packages/mock-llm/src/config/validator.ts",
+          "hash": "8302602165430628647",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "packages/mock-llm/src/engine/keyword-resolver.ts",
+          "hash": "12699464978731853679"
+        },
+        {
+          "file": "packages/mock-llm/src/engine/nlp-matcher.ts",
+          "hash": "6678782951219054797",
+          "deps": [
+            "npm:compromise"
+          ]
+        },
+        {
+          "file": "packages/mock-llm/src/engine/query-builder.ts",
+          "hash": "10146714859222540295"
+        },
+        {
+          "file": "packages/mock-llm/src/engine/response-builder.ts",
+          "hash": "8856202976092339064"
+        },
+        {
+          "file": "packages/mock-llm/src/engine/story-resolver.ts",
+          "hash": "14313359412508845940"
+        },
+        {
+          "file": "packages/mock-llm/src/index.ts",
+          "hash": "17434932908133442166"
+        },
+        {
+          "file": "packages/mock-llm/src/mock-llm.ts",
+          "hash": "15093728234032535669"
+        },
+        {
+          "file": "packages/mock-llm/tests/adapters.test.ts",
+          "hash": "12721672287784375390"
+        },
+        {
+          "file": "packages/mock-llm/tests/integration.test.ts",
+          "hash": "7402359002140470555"
+        },
+        {
+          "file": "packages/mock-llm/tests/nlp-matcher.test.ts",
+          "hash": "4461305751696505839"
+        },
+        {
+          "file": "packages/mock-llm/tests/story-resolver.test.ts",
+          "hash": "2450977638217395733"
+        },
+        {
+          "file": "packages/mock-llm/tsconfig.json",
+          "hash": "9563584826986310649"
+        },
+        {
+          "file": "packages/mock-llm/tsup.config.ts",
+          "hash": "12950122814674526016",
+          "deps": [
+            "npm:tsup"
+          ]
+        }
+      ],
       "demo-nextjs": [
+        {
+          "file": "apps/demo-nextjs/.gitignore",
+          "hash": "17586990602315877749"
+        },
         {
           "file": "apps/demo-nextjs/config/keywords/habit.json",
           "hash": "8423980161091077891"
@@ -25,7 +154,7 @@
         },
         {
           "file": "apps/demo-nextjs/config/keywords/science-sky.json",
-          "hash": "8201579033948335468"
+          "hash": "7053389254048844915"
         },
         {
           "file": "apps/demo-nextjs/config/keywords/science-weather.json",
@@ -85,7 +214,7 @@
         },
         {
           "file": "apps/demo-nextjs/next.config.js",
-          "hash": "8542611809175736569"
+          "hash": "14893202389867082341"
         },
         {
           "file": "apps/demo-nextjs/package.json",
@@ -95,122 +224,46 @@
           ]
         },
         {
+          "file": "apps/demo-nextjs/pages/_app.tsx",
+          "hash": "9692763759001818805",
+          "deps": [
+            "npm:next",
+            "npm:@fontsource/roboto"
+          ]
+        },
+        {
           "file": "apps/demo-nextjs/pages/api/config.ts",
-          "hash": "2637257680729769078"
+          "hash": "2637257680729769078",
+          "deps": [
+            "npm:next"
+          ]
         },
         {
           "file": "apps/demo-nextjs/pages/api/query.ts",
-          "hash": "9334159459391084862"
+          "hash": "9334159459391084862",
+          "deps": [
+            "npm:next"
+          ]
         },
         {
           "file": "apps/demo-nextjs/pages/api/snapshot.ts",
-          "hash": "16827427944291379632"
+          "hash": "16827427944291379632",
+          "deps": [
+            "npm:next"
+          ]
         },
         {
           "file": "apps/demo-nextjs/pages/index.tsx",
-          "hash": "2957865894716635898"
-        }
-      ],
-      "@nice-tools/mock-llm": [
-        {
-          "file": "packages/mock-llm/CHANGELOG.md",
-          "hash": "6838967283326954905"
+          "hash": "16074571563764222518",
+          "deps": [
+            "npm:react",
+            "npm:@mui/material",
+            "npm:@mui/icons-material"
+          ]
         },
         {
-          "file": "packages/mock-llm/jest.config.js",
-          "hash": "13603806964404841286"
-        },
-        {
-          "file": "packages/mock-llm/package.json",
-          "hash": "3308372095827542977"
-        },
-        {
-          "file": "packages/mock-llm/src/adapters/base.adapter.ts",
-          "hash": "5043031038019101369"
-        },
-        {
-          "file": "packages/mock-llm/src/adapters/blob.adapter.ts",
-          "hash": "11187597734711827706"
-        },
-        {
-          "file": "packages/mock-llm/src/adapters/cosmos.adapter.ts",
-          "hash": "6484543636550857127"
-        },
-        {
-          "file": "packages/mock-llm/src/adapters/gcs.adapter.ts",
-          "hash": "17280143539756908645"
-        },
-        {
-          "file": "packages/mock-llm/src/adapters/image.adapter.ts",
-          "hash": "4642626440225447586"
-        },
-        {
-          "file": "packages/mock-llm/src/adapters/mock-cosmos.adapter.ts",
-          "hash": "14522882964543583811"
-        },
-        {
-          "file": "packages/mock-llm/src/config/loader.ts",
-          "hash": "11939012740138249532"
-        },
-        {
-          "file": "packages/mock-llm/src/config/types.ts",
-          "hash": "230203285988848808"
-        },
-        {
-          "file": "packages/mock-llm/src/config/validator.ts",
-          "hash": "8302602165430628647"
-        },
-        {
-          "file": "packages/mock-llm/src/engine/keyword-resolver.ts",
-          "hash": "2138271890067699538"
-        },
-        {
-          "file": "packages/mock-llm/src/engine/nlp-matcher.ts",
-          "hash": "3167388844690629362"
-        },
-        {
-          "file": "packages/mock-llm/src/engine/query-builder.ts",
-          "hash": "10146714859222540295"
-        },
-        {
-          "file": "packages/mock-llm/src/engine/response-builder.ts",
-          "hash": "8856202976092339064"
-        },
-        {
-          "file": "packages/mock-llm/src/engine/story-resolver.ts",
-          "hash": "14313359412508845940"
-        },
-        {
-          "file": "packages/mock-llm/src/index.ts",
-          "hash": "17434932908133442166"
-        },
-        {
-          "file": "packages/mock-llm/src/mock-llm.ts",
-          "hash": "15085793175927096380"
-        },
-        {
-          "file": "packages/mock-llm/tests/adapters.test.ts",
-          "hash": "3837994768120266872"
-        },
-        {
-          "file": "packages/mock-llm/tests/integration.test.ts",
-          "hash": "10294649036984686337"
-        },
-        {
-          "file": "packages/mock-llm/tests/nlp-matcher.test.ts",
-          "hash": "4461305751696505839"
-        },
-        {
-          "file": "packages/mock-llm/tests/story-resolver.test.ts",
-          "hash": "4488073073092792778"
-        },
-        {
-          "file": "packages/mock-llm/tsconfig.json",
-          "hash": "9563584826986310649"
-        },
-        {
-          "file": "packages/mock-llm/tsup.config.ts",
-          "hash": "12950122814674526016"
+          "file": "apps/demo-nextjs/tsconfig.json",
+          "hash": "4409291626018425164"
         }
       ]
     },
@@ -237,7 +290,7 @@
       },
       {
         "file": ".gitignore",
-        "hash": "8900337824098866112"
+        "hash": "5106760810189412053"
       },
       {
         "file": "PUBLISHING.md",
@@ -249,7 +302,7 @@
       },
       {
         "file": "config/keywords/science-sky.json",
-        "hash": "8201579033948335468"
+        "hash": "7053389254048844915"
       },
       {
         "file": "config/keywords/science-weather.json",
@@ -305,7 +358,7 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "3161385965130588532"
+        "hash": "16322862881027452898"
       },
       {
         "file": "package.json",

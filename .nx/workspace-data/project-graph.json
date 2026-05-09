@@ -6648,24 +6648,6 @@
         "hash": "sha512-oPtTM4oerL+UXmx+93ytZVN82RrlY/wPUV8IeDxFrzIjXOLF1pN+EmKPLbubvKHT2HC20xXsCAH2Z+CKV6Oz/g=="
       }
     },
-    "npm:yaml@2.8.4": {
-      "type": "npm",
-      "name": "npm:yaml@2.8.4",
-      "data": {
-        "version": "2.8.4",
-        "packageName": "yaml",
-        "hash": "sha512-ml/JPOj9fOQK8RNnWojA67GbZ0ApXAUlN2UQclwv2eVgTgn7O9gg9o7paZWKMp4g0H3nTLtS9LVzhkpOFIKzog=="
-      }
-    },
-    "npm:yaml": {
-      "type": "npm",
-      "name": "npm:yaml",
-      "data": {
-        "version": "1.10.3",
-        "packageName": "yaml",
-        "hash": "sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA=="
-      }
-    },
     "npm:type-detect": {
       "type": "npm",
       "name": "npm:type-detect",
@@ -6900,6 +6882,15 @@
         "hash": "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="
       }
     },
+    "npm:yaml": {
+      "type": "npm",
+      "name": "npm:yaml",
+      "data": {
+        "version": "1.10.3",
+        "packageName": "yaml",
+        "hash": "sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA=="
+      }
+    },
     "npm:yargs": {
       "type": "npm",
       "name": "npm:yargs",
@@ -6947,11 +6938,67 @@
     }
   },
   "dependencies": {
-    "@nice-tools/mock-llm": [],
+    "@nice-tools/mock-llm": [
+      {
+        "source": "@nice-tools/mock-llm",
+        "target": "npm:@azure/storage-blob",
+        "type": "static"
+      },
+      {
+        "source": "@nice-tools/mock-llm",
+        "target": "npm:@azure/cosmos",
+        "type": "static"
+      },
+      {
+        "source": "@nice-tools/mock-llm",
+        "target": "npm:@google-cloud/storage",
+        "type": "static"
+      },
+      {
+        "source": "@nice-tools/mock-llm",
+        "target": "npm:zod",
+        "type": "static"
+      },
+      {
+        "source": "@nice-tools/mock-llm",
+        "target": "npm:compromise",
+        "type": "static"
+      },
+      {
+        "source": "@nice-tools/mock-llm",
+        "target": "npm:tsup",
+        "type": "static"
+      }
+    ],
     "demo-nextjs": [
       {
         "source": "demo-nextjs",
         "target": "@nice-tools/mock-llm",
+        "type": "static"
+      },
+      {
+        "source": "demo-nextjs",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "demo-nextjs",
+        "target": "npm:@fontsource/roboto",
+        "type": "static"
+      },
+      {
+        "source": "demo-nextjs",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "demo-nextjs",
+        "target": "npm:@mui/material",
+        "type": "static"
+      },
+      {
+        "source": "demo-nextjs",
+        "target": "npm:@mui/icons-material",
         "type": "static"
       }
     ],
@@ -13433,13 +13480,6 @@
         "type": "static"
       }
     ],
-    "npm:dedent@1.7.2": [
-      {
-        "source": "npm:dedent@1.7.2",
-        "target": "npm:babel-plugin-macros@3.1.0",
-        "type": "static"
-      }
-    ],
     "npm:jest-cli": [
       {
         "source": "npm:jest-cli",
@@ -16029,11 +16069,6 @@
       {
         "source": "npm:postcss-load-config@6.0.1",
         "target": "npm:postcss",
-        "type": "static"
-      },
-      {
-        "source": "npm:postcss-load-config@6.0.1",
-        "target": "npm:yaml@2.8.4",
         "type": "static"
       },
       {
