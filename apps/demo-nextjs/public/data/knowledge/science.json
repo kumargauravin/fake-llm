@@ -1,0 +1,100 @@
+[
+  {
+    "id": "matter-gravity",
+    "question": "What is gravity?",
+    "answer": "Gravity is a natural force that attracts objects with mass toward each other. On Earth, it pulls everything downward toward the center of the planet.",
+    "topic": "science",
+    "tags": [
+      "gravity",
+      "science",
+      "force",
+      "physics"
+    ]
+  },
+  {
+    "id": "matter-water",
+    "question": "What is water made of?",
+    "answer": "Water is made of two hydrogen atoms bonded to one oxygen atom, giving it the chemical formula H2O.",
+    "topic": "science",
+    "tags": [
+      "water",
+      "science",
+      "molecules",
+      "chemistry"
+    ]
+  },
+  {
+    "id": "sky-stars-night",
+    "question": "Why do we see stars at night?",
+    "answer": "Stars are visible at night because the sun is not scattering light through the atmosphere, allowing distant starlight to reach our eyes.",
+    "topic": "science",
+    "tags": [
+      "sky",
+      "stars",
+      "night",
+      "light"
+    ]
+  },
+  {
+    "id": "sky-sunset-red",
+    "question": "Why is the sky red at sunset?",
+    "answer": "At sunset, sunlight travels through more atmosphere, scattering away blue light and leaving red and orange wavelengths visible.",
+    "topic": "science",
+    "tags": [
+      "sky",
+      "sunset",
+      "red",
+      "atmosphere",
+      "light"
+    ]
+  },
+  {
+    "id": "sky-why-blue",
+    "question": "Why is the sky blue?",
+    "answer": "The sky looks blue because of Rayleigh scattering. Molecules in the atmosphere scatter shorter blue wavelengths of sunlight more than longer red wavelengths, making the sky appear blue to our eyes.",
+    "topic": "science",
+    "tags": [
+      "sky",
+      "blue",
+      "atmosphere",
+      "light",
+      "rayleigh"
+    ]
+  },
+  {
+    "id": "weather-why-clouds",
+    "question": "Why do clouds form?",
+    "answer": "Clouds form when warm moist air rises and cools, causing water vapor to condense around tiny dust or salt particles in the atmosphere.",
+    "topic": "science",
+    "tags": [
+      "clouds",
+      "weather",
+      "water",
+      "atmosphere"
+    ]
+  },
+  {
+    "id": "weather-why-rain",
+    "question": "Why does it rain?",
+    "answer": "It rains when water droplets in clouds combine and grow heavy enough to fall to the ground due to gravity.",
+    "topic": "science",
+    "tags": [
+      "rain",
+      "weather",
+      "water",
+      "clouds"
+    ]
+  },
+  {
+    "id": "weather-why-wind",
+    "question": "Why does wind blow?",
+    "answer": "Wind blows because of differences in air pressure. Air moves from high pressure areas to low pressure areas, creating wind.",
+    "topic": "science",
+    "tags": [
+      "wind",
+      "weather",
+      "pressure",
+      "atmosphere"
+    ]
+  }
+]

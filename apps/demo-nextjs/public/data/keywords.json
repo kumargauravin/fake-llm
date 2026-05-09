@@ -1,0 +1,151 @@
+[
+  {
+    "keyword": "habit",
+    "category": "entity",
+    "aliases": [
+      "routine",
+      "practice",
+      "daily habit",
+      "habits"
+    ],
+    "data_source": "learnings/habits"
+  },
+  {
+    "keyword": "streak",
+    "category": "metric",
+    "aliases": [
+      "streak count",
+      "consecutive days",
+      "current streak"
+    ],
+    "data_source": "learnings/habits"
+  },
+  {
+    "keyword": "frequency",
+    "category": "attribute",
+    "aliases": [
+      "how often",
+      "recurrence",
+      "repeat"
+    ],
+    "data_source": "learnings/habits"
+  },
+  {
+    "keyword": "category",
+    "category": "attribute",
+    "aliases": [
+      "type",
+      "group",
+      "tag"
+    ],
+    "data_source": "learnings/habits"
+  },
+  {
+    "keyword": "fitness",
+    "category": "category-value",
+    "aliases": [
+      "exercise",
+      "workout",
+      "health",
+      "physical"
+    ],
+    "data_source": "learnings/habits"
+  },
+  {
+    "keyword": "learning",
+    "category": "category-value",
+    "aliases": [
+      "study",
+      "reading",
+      "education",
+      "knowledge"
+    ],
+    "data_source": "learnings/habits"
+  },
+  {
+    "keyword": "mindfulness",
+    "category": "category-value",
+    "aliases": [
+      "meditation",
+      "mental health",
+      "calm",
+      "focus"
+    ],
+    "data_source": "learnings/habits"
+  },
+  {
+    "keyword": "hygiene",
+    "category": "category-value",
+    "aliases": [
+      "grooming",
+      "cleanliness",
+      "self-care"
+    ],
+    "data_source": "learnings/habits"
+  },
+  {
+    "keyword": "gravity",
+    "aliases": [
+      "what is gravity",
+      "gravitational force",
+      "gravity force",
+      "mass attraction"
+    ],
+    "category": "science",
+    "data_source": "knowledge/science",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "sky",
+    "aliases": [
+      "blue sky",
+      "why is the sky blue",
+      "sky color",
+      "sky colour",
+      "color of sky",
+      "colour of sky",
+      "what color is sky",
+      "what colour is sky",
+      "rayleigh scattering",
+      "atmosphere scattering"
+    ],
+    "category": "science",
+    "data_source": "knowledge/science",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "weather",
+    "aliases": [
+      "rain",
+      "sunny",
+      "clouds",
+      "cloud",
+      "atmosphere",
+      "wind",
+      "storm",
+      "humidity",
+      "temperature"
+    ],
+    "category": "science",
+    "data_source": "knowledge/science",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  }
+]
