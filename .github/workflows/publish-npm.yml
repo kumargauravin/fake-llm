@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,13 +53,18 @@ jobs:
           fi
 
       - name: Trigger GitHub Pages redeploy
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'deploy-pages.yml',
-              ref: 'main'
-            });
-            console.log('GitHub Pages redeploy triggered successfully.');
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'deploy-pages.yml',
+                ref: 'main'
+              });
+              console.log('GitHub Pages redeploy triggered successfully.');
+            } catch (e) {
+              console.log('Could not trigger Pages redeploy:', e.message);
+            }
