@@ -1,0 +1,140 @@
+[
+  {
+    "story_id": "story_habit_001",
+    "description": "List all habits",
+    "keywords": [
+      "habit"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "habit",
+        "from_source": "learnings/habits"
+      }
+    ]
+  },
+  {
+    "story_id": "story_habit_002",
+    "description": "Find habits by category",
+    "keywords": [
+      "habit",
+      "fitness"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "habit",
+        "from_source": "learnings/habits"
+      }
+    ]
+  },
+  {
+    "story_id": "story_habit_003",
+    "description": "Compare two habits",
+    "keywords": [
+      "habit"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "habit",
+        "from_source": "learnings/habits"
+      },
+      {
+        "step": 2,
+        "action": "compare",
+        "keyword": "habit",
+        "from_source": "learnings/habits"
+      }
+    ]
+  },
+  {
+    "story_id": "story_habit_004",
+    "description": "Explain a habit including streak and frequency",
+    "keywords": [
+      "habit",
+      "streak",
+      "frequency"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "habit",
+        "from_source": "learnings/habits"
+      }
+    ]
+  },
+  {
+    "story_id": "story_habit_005",
+    "description": "Find habits by streak",
+    "keywords": [
+      "habit",
+      "streak"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "habit",
+        "from_source": "learnings/habits"
+      }
+    ]
+  },
+  {
+    "story_id": "science-matter-001",
+    "description": "Answers questions about matter, physics, water and gravity.",
+    "keywords": [
+      "gravity"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "gravity",
+        "from_source": "knowledge/science"
+      }
+    ]
+  },
+  {
+    "story_id": "science-sky-001",
+    "description": "Answers basic science questions about why the sky is blue.",
+    "keywords": [
+      "sky"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "sky",
+        "from_source": "knowledge/science"
+      }
+    ]
+  },
+  {
+    "story_id": "science-weather-001",
+    "description": "Answers basic weather and atmosphere questions.",
+    "keywords": [
+      "weather"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "weather",
+        "from_source": "knowledge/science"
+      }
+    ]
+  }
+]

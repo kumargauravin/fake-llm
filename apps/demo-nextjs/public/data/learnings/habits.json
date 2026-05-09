@@ -1,0 +1,114 @@
+[
+  {
+    "id": "habit_001",
+    "name": "Morning Run",
+    "category": "fitness",
+    "frequency": "daily",
+    "streak": 14,
+    "description": "Run 5km every morning before breakfast.",
+    "created_at": "2026-01-01",
+    "tags": [
+      "health",
+      "outdoor",
+      "cardio"
+    ]
+  },
+  {
+    "id": "habit_002",
+    "name": "Read 30 Minutes",
+    "category": "learning",
+    "frequency": "daily",
+    "streak": 30,
+    "description": "Read a book or article for at least 30 minutes each day.",
+    "created_at": "2026-01-05",
+    "tags": [
+      "books",
+      "knowledge",
+      "education"
+    ]
+  },
+  {
+    "id": "habit_003",
+    "name": "Meditation",
+    "category": "mindfulness",
+    "frequency": "daily",
+    "streak": 7,
+    "description": "10 minutes of guided meditation each morning.",
+    "created_at": "2026-02-01",
+    "tags": [
+      "mental health",
+      "calm",
+      "focus"
+    ]
+  },
+  {
+    "id": "habit_004",
+    "name": "Drink 2L Water",
+    "category": "hygiene",
+    "frequency": "daily",
+    "streak": 21,
+    "description": "Stay hydrated by drinking at least 2 litres of water per day.",
+    "created_at": "2026-01-15",
+    "tags": [
+      "health",
+      "hydration",
+      "self-care"
+    ]
+  },
+  {
+    "id": "habit_005",
+    "name": "Weekly Strength Training",
+    "category": "fitness",
+    "frequency": "weekly",
+    "streak": 5,
+    "description": "Full body strength training session every Saturday.",
+    "created_at": "2026-02-10",
+    "tags": [
+      "gym",
+      "strength",
+      "muscle"
+    ]
+  },
+  {
+    "id": "habit_006",
+    "name": "Journaling",
+    "category": "mindfulness",
+    "frequency": "daily",
+    "streak": 10,
+    "description": "Write 3 things you are grateful for every evening.",
+    "created_at": "2026-03-01",
+    "tags": [
+      "gratitude",
+      "reflection",
+      "mental health"
+    ]
+  },
+  {
+    "id": "habit_007",
+    "name": "Online Course Progress",
+    "category": "learning",
+    "frequency": "weekly",
+    "streak": 3,
+    "description": "Complete at least one module of an online course per week.",
+    "created_at": "2026-03-15",
+    "tags": [
+      "upskill",
+      "technology",
+      "career"
+    ]
+  },
+  {
+    "id": "habit_008",
+    "name": "Skincare Routine",
+    "category": "hygiene",
+    "frequency": "daily",
+    "streak": 45,
+    "description": "Morning and evening skincare routine.",
+    "created_at": "2025-12-01",
+    "tags": [
+      "skin",
+      "self-care",
+      "grooming"
+    ]
+  }
+]
