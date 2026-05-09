@@ -3,10 +3,12 @@
   "version": "1.1.0",
   "private": true,
   "scripts": {
+    "generate-data": "node scripts/generate-data.js",
+    "predev": "node scripts/generate-data.js",
+    "prebuild": "node scripts/generate-data.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,16 +17,16 @@
     "@fontsource/roboto": "^5.2.10",
     "@mui/icons-material": "^9.0.1",
     "@mui/material": "^9.0.1",
-    "@mui/x-data-grid": "^9.1.0",
     "@nice-tools/mock-llm": "latest",
-    "next": "^14.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "compromise": "^14.10.0",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "typescript": "^5.3.3"
   }
 }

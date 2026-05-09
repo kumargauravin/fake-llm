@@ -1,4 +1,4 @@
-import { Storage, Bucket } from '@google-cloud/storage';
+import { Storage } from '@google-cloud/storage';
 import { BaseAdapter, QueryParams } from './base.adapter';
 
 export interface GCSAdapterOptions {
@@ -6,6 +6,12 @@ export interface GCSAdapterOptions {
   keyFilePath: string;
 }
 
+/**
+ * Google Cloud Storage adapter for fetching JSON data from GCS buckets.
+ *
+ * @server-only The `@google-cloud/storage` SDK is Node.js-only and has no
+ * browser build. Do not import from `@nice-tools/mock-llm/browser`.
+ */
 export class GCSAdapter extends BaseAdapter {
   private storage: Storage;
 
