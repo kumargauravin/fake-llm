@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
 import { MockLLM } from '@nice-tools/mock-llm';
+import { DEMO_MODULE } from '../../lib/demo-module';
 
 let llm: MockLLM | null = null;
 
@@ -12,7 +13,7 @@ async function getLLM(): Promise<MockLLM> {
         location: { path: path.join(process.cwd(), 'config') }
       },
       connections: {
-        mockCosmos: { basePath: path.join(process.cwd(), 'mock-db') }
+        mockCosmos: { basePath: path.join(process.cwd(), DEMO_MODULE.connections.mockCosmos.basePath) }
       }
     });
     await llm.initialize();
@@ -30,7 +31,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(200).json({
       keywords: agent.getKeywords(),
       stories: agent.getStories(),
-      dataSources: agent.listDataSources()
+      dataSources: agent.listDataSources(),
+      module: {
+        show_debug: DEMO_MODULE.show_debug,
+        connections: {
+          mockCosmos: { basePath: path.join(process.cwd(), DEMO_MODULE.connections.mockCosmos.basePath) },
+          mockStorage: { basePath: path.join(process.cwd(), DEMO_MODULE.connections.mockStorage.basePath) }
+        }
+      }
     });
   } catch (error: any) {
     console.error('Config API error:', error);

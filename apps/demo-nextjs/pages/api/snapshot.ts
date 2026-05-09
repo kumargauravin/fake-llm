@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
 import { MockLLM } from '@nice-tools/mock-llm';
+import { DEMO_MODULE } from '../../lib/demo-module';
 
 let llm: MockLLM | null = null;
 
@@ -12,7 +13,7 @@ async function getLLM(): Promise<MockLLM> {
         location: { path: path.join(process.cwd(), 'config') }
       },
       connections: {
-        mockCosmos: { basePath: path.join(process.cwd(), 'mock-db') }
+        mockCosmos: { basePath: path.join(process.cwd(), DEMO_MODULE.connections.mockCosmos.basePath) }
       }
     });
     await llm.initialize();
