@@ -1,0 +1,27 @@
+{
+  "name": "fake-llm-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:lib": "nx build mock-llm",
+    "build:nextjs": "nx build demo-nextjs",
+    "build:angular": "nx build demo-angular",
+    "dev:nextjs": "nx dev demo-nextjs",
+    "dev:angular": "nx serve demo-angular",
+    "test": "nx test mock-llm",
+    "test:watch": "nx test mock-llm --watch",
+    "test:demo": "node scripts/test-demo.js",
+    "bump": "node scripts/bump-version.js",
+    "publish:lib": "node scripts/publish.js",
+    "validate": "node scripts/validate-config.js"
+  },
+  "devDependencies": {
+    "@nx/js": "^19.0.0",
+    "nx": "^19.0.0",
+    "typescript": "^5.4.5"
+  }
+}
