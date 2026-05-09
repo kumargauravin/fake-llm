@@ -1,0 +1,67 @@
+[
+  {
+    "id": "story_habit_001",
+    "name": "List all habits",
+    "keywords": ["habit", "routine"],
+    "resolution_steps": [
+      {
+        "action": "fetch",
+        "from_source": "habits"
+      }
+    ]
+  },
+  {
+    "id": "story_habit_002",
+    "name": "Find habits by category",
+    "keywords": ["habit", "category", "fitness", "learning", "mindfulness", "hygiene"],
+    "resolution_steps": [
+      {
+        "action": "fetch",
+        "from_source": "habits",
+        "filter_by": "category"
+      }
+    ]
+  },
+  {
+    "id": "story_habit_003",
+    "name": "Compare two habits",
+    "keywords": ["habit", "compare"],
+    "resolution_steps": [
+      {
+        "action": "fetch",
+        "from_source": "habits"
+      },
+      {
+        "action": "compare",
+        "from_source": "habits"
+      }
+    ]
+  },
+  {
+    "id": "story_habit_004",
+    "name": "Explain a habit",
+    "keywords": ["habit", "streak", "frequency"],
+    "resolution_steps": [
+      {
+        "action": "fetch",
+        "from_source": "habits"
+      },
+      {
+        "action": "explain",
+        "from_source": "habits"
+      }
+    ]
+  },
+  {
+    "id": "story_habit_005",
+    "name": "Find habits by streak",
+    "keywords": ["habit", "streak"],
+    "resolution_steps": [
+      {
+        "action": "fetch",
+        "from_source": "habits",
+        "filter_by": "streak"
+      }
+    ]
+  }
+]
