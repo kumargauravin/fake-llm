@@ -1,0 +1,42 @@
+[
+  {
+    "keyword": "habit",
+    "category": "entity",
+    "aliases": ["routine", "practice", "daily habit", "habits"]
+  },
+  {
+    "keyword": "streak",
+    "category": "metric",
+    "aliases": ["streak count", "consecutive days", "current streak"]
+  },
+  {
+    "keyword": "frequency",
+    "category": "attribute",
+    "aliases": ["how often", "recurrence", "repeat"]
+  },
+  {
+    "keyword": "category",
+    "category": "attribute",
+    "aliases": ["type", "group", "tag"]
+  },
+  {
+    "keyword": "fitness",
+    "category": "category-value",
+    "aliases": ["exercise", "workout", "health", "physical"]
+  },
+  {
+    "keyword": "learning",
+    "category": "category-value",
+    "aliases": ["study", "reading", "education", "knowledge"]
+  },
+  {
+    "keyword": "mindfulness",
+    "category": "category-value",
+    "aliases": ["meditation", "mental health", "calm", "focus"]
+  },
+  {
+    "keyword": "hygiene",
+    "category": "category-value",
+    "aliases": ["grooming", "cleanliness", "self-care"]
+  }
+]
