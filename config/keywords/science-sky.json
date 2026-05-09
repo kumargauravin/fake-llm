@@ -1,6 +1,6 @@
 {
   "keyword": "sky",
-  "aliases": ["blue sky", "why is the sky blue", "sky color", "atmosphere"],
+  "aliases": ["blue sky", "why is the sky blue", "sky color", "atmosphere", "blue", "light", "rayleigh", "sun", "color"],
   "category": "science",
   "data_source": "knowledge/science",
   "schema": {

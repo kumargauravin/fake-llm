@@ -1,6 +1,6 @@
 {
   "keyword": "weather",
-  "aliases": ["rain", "sunny", "clouds", "atmosphere"],
+  "aliases": ["rain", "sunny", "clouds", "cloud", "atmosphere", "wind", "storm", "humidity", "temperature"],
   "category": "science",
   "data_source": "knowledge/science",
   "schema": {

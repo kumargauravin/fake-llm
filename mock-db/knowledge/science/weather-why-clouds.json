@@ -1,7 +1,7 @@
 {
   "id": "weather-why-clouds",
   "question": "Why do clouds form?",
-  "answer": "Clouds form when water vapor cools and condenses around tiny particles in the air.",
+  "answer": "Clouds form when warm moist air rises and cools, causing water vapor to condense around tiny dust or salt particles in the atmosphere.",
   "topic": "science",
-  "tags": ["clouds", "weather", "water"]
+  "tags": ["clouds", "weather", "water", "atmosphere"]
 }

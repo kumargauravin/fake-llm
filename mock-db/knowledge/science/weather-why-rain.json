@@ -1,7 +1,7 @@
 {
   "id": "weather-why-rain",
   "question": "Why does it rain?",
-  "answer": "It rains when water droplets in clouds become heavy enough to fall due to gravity.",
+  "answer": "It rains when water droplets in clouds combine and grow heavy enough to fall to the ground due to gravity.",
   "topic": "science",
-  "tags": ["rain", "weather", "water"]
+  "tags": ["rain", "weather", "water", "clouds"]
 }

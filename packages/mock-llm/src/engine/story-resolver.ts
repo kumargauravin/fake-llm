@@ -20,7 +20,8 @@ export class StoryResolver {
 
     matches.sort((a, b) => b.score - a.score);
     const best = matches[0];
-    return best && best.score > 0.3 ? best : undefined;
+    // Lowered threshold from 0.3 to 0.1 so single-keyword stories match
+    return best && best.score > 0.1 ? best : undefined;
   }
 
   private scoreStory(story: Story, intent: Intent, resolvedKeywords: KeywordEntry[]): number {
