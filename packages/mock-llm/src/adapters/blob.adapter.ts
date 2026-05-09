@@ -1,4 +1,4 @@
-import { BlobServiceClient, ContainerClient } from '@azure/storage-blob';
+import { BlobServiceClient, BlobDownloadResponseParsed } from '@azure/storage-blob';
 import { BaseAdapter, QueryParams } from './base.adapter';
 
 export interface BlobAdapterOptions {
@@ -32,7 +32,7 @@ export class BlobAdapter extends BaseAdapter {
       if (blob.name.endsWith('.json')) {
         const blobClient = containerClient.getBlobClient(blob.name);
         const downloadResponse = await blobClient.download();
-        const content = await this.streamToString(downloadResponse.readableStreamBody!);
+        const content = await this.readDownloadResponse(downloadResponse);
         const data = JSON.parse(content);
         
         // Apply filters
@@ -53,7 +53,21 @@ export class BlobAdapter extends BaseAdapter {
     return Object.entries(filters).every(([key, value]) => data[key] === value);
   }
 
-  private async streamToString(stream: NodeJS.ReadableStream): Promise<string> {
+  /**
+   * Reads blob download response content as a UTF-8 string.
+   *
+   * The Azure Blob SDK exposes different properties depending on the runtime:
+   * - Browser: `blobBody` (`Promise<Blob>`) — uses `Blob.text()`.
+   * - Node.js: `readableStreamBody` (`NodeJS.ReadableStream`) — uses stream events.
+   */
+  private async readDownloadResponse(response: BlobDownloadResponseParsed): Promise<string> {
+    if (response.blobBody) {
+      // Browser environment
+      const blob = await response.blobBody;
+      return blob.text();
+    }
+    // Node.js environment
+    const stream = response.readableStreamBody!;
     const chunks: Buffer[] = [];
     return new Promise((resolve, reject) => {
       stream.on('data', (chunk) => chunks.push(Buffer.from(chunk)));
