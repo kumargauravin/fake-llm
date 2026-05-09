@@ -148,7 +148,7 @@ function Inspector({ answer, configData, open }: { answer: LLMAnswer | null; con
   const [snapshotLoading, setSnapshotLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const debug = answer?.debug;
-  const showDebug = configData?.module?.show_debug !== false;
+  const showDebug = configData?.module?.show_debug ?? true;
   const keywordColumnDefs: ColDef[] = [
     { field: 'keyword', headerName: 'Keyword', flex: 1.1, minWidth: 140 },
     { field: 'category', headerName: 'Category', flex: 1, minWidth: 120 },
@@ -318,7 +318,7 @@ function Inspector({ answer, configData, open }: { answer: LLMAnswer | null; con
                 <Typography variant="body2" sx={{ fontWeight: 700 }}>Keywords ({configData.keywords.length})</Typography>
               </AccordionSummary>
               <AccordionDetails sx={{ p: 1 }}>
-                <Box className="ag-theme-alpine" sx={{ height: 260, width: '100%' }}>
+                <Box className="ag-theme-alpine" sx={{ height: 260, width: '100%' }} aria-label="Keywords configuration grid">
                   <AgGridReact
                     rowData={configData.keywords}
                     columnDefs={keywordColumnDefs}
