@@ -318,7 +318,7 @@ function Inspector({ answer, configData, open }: { answer: LLMAnswer | null; con
                 <Typography variant="body2" sx={{ fontWeight: 700 }}>Keywords ({configData.keywords.length})</Typography>
               </AccordionSummary>
               <AccordionDetails sx={{ p: 1 }}>
-                <Box className="ag-theme-alpine" sx={{ height: 260, width: '100%' }} aria-label="Keywords configuration grid">
+                <Box className="ag-theme-alpine" sx={{ height: 260, width: '100%' }}>
                   <AgGridReact
                     rowData={configData.keywords}
                     columnDefs={keywordColumnDefs}
