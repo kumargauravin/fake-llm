@@ -17,7 +17,7 @@
     "@fontsource/roboto": "^5.2.10",
     "@mui/icons-material": "^9.0.1",
     "@mui/material": "^9.0.1",
-    "@nice-tools/mock-llm": "latest",
+    "@nice-tools/fake-llm": "latest",
     "ag-grid-community": "^35.0.0",
     "ag-grid-react": "^35.0.0",
     "compromise": "^14.10.0",

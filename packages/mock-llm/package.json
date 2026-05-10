@@ -1,5 +1,5 @@
 {
-  "name": "@nice-tools/mock-llm",
+  "name": "@nice-tools/fake-llm",
   "version": "1.2.0",
   "description": "Configuration-driven natural language query engine with zero LLM costs",
   "main": "./dist/index.cjs",
@@ -27,7 +27,7 @@
   },
   "keywords": [
     "nlp",
-    "mock-llm",
+    "fake-llm",
     "configuration-driven",
     "zero-llm",
     "natural-language",
