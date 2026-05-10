@@ -1,4 +1,4 @@
-name: Publish @nice-tools/mock-llm to npm
+name: Publish @nice-tools/fake-llm to npm
 
 on:
   push:

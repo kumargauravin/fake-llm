@@ -1,4 +1,4 @@
-# Publishing `@nice-tools/mock-llm` to npm
+# Publishing `@nice-tools/fake-llm` to npm
 
 ## Step 1 — Create the `@nice-tools` npm Organization
 
@@ -8,7 +8,7 @@
 4. Choose **Free** plan (public packages only).
 5. Click **Create**.
 
-> ✅ This creates the `@nice-tools` scope on npm, allowing you to publish `@nice-tools/mock-llm`.
+> ✅ This creates the `@nice-tools` scope on npm, allowing you to publish `@nice-tools/fake-llm`.
 
 ---
 
@@ -57,7 +57,7 @@ git push origin v1.0.1
 ```
 
 This will:
-1. Build `@nice-tools/mock-llm`
+1. Build `@nice-tools/fake-llm`
 2. Publish to npm
 3. Trigger a GitHub Pages redeploy of the demo app
 
@@ -80,5 +80,5 @@ Update version in `packages/mock-llm/package.json` before tagging.
 ## Useful Links
 
 - npm org: [https://www.npmjs.com/org/nice-tools](https://www.npmjs.com/org/nice-tools)
-- Package: [https://www.npmjs.com/package/@nice-tools/mock-llm](https://www.npmjs.com/package/@nice-tools/mock-llm)
+- Package: [https://www.npmjs.com/package/@nice-tools/fake-llm](https://www.npmjs.com/package/@nice-tools/fake-llm)
 - GitHub repo: [https://github.com/kumargauravin/fake-llm](https://github.com/kumargauravin/fake-llm)
