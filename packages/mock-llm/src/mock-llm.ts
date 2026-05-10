@@ -20,7 +20,7 @@ export interface MockLLMOptions {
  * delegated to the isomorphic `MockLLMEngine`.
  *
  * For browser / edge environments use `BrowserMockLLM` from
- * `@nice-tools/mock-llm/browser` instead.
+ * `@nice-tools/fake-llm/browser` instead.
  */
 export class MockLLM {
   private configLoader: ConfigLoader;

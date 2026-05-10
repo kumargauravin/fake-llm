@@ -17,8 +17,8 @@
 - **`BrowserMockLLM`** — browser-safe orchestrator. Wraps `FetchConfigLoader`,
   `HttpMockAdapter`, and `MockLLMEngine`. Exposes the same API as `MockLLM`
   (`initialize()`, `query()`, introspection methods). Import from
-  `@nice-tools/mock-llm/browser`.
-- **`@nice-tools/mock-llm/browser` sub-path export** — new entry point
+  `@nice-tools/fake-llm/browser`.
+- **`@nice-tools/fake-llm/browser` sub-path export** — new entry point
   (`src/browser.ts`) that exports only isomorphic code: engine classes,
   `FetchConfigLoader`, `HttpMockAdapter`, `MockLLMEngine`, `BrowserMockLLM`, and
   types. No `fs`, `path`, or Node.js-only cloud SDK imports.

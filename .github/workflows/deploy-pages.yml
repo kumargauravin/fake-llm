@@ -30,7 +30,7 @@ jobs:
       - name: Install root dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Build mock-llm package
+      - name: Build fake-llm package
         working-directory: packages/mock-llm
         run: |
           npm install --legacy-peer-deps
@@ -40,7 +40,7 @@ jobs:
         working-directory: apps/demo-nextjs
         run: |
           npm install --legacy-peer-deps --no-package-lock
-          npm install --legacy-peer-deps --no-package-lock @nice-tools/mock-llm@latest
+          npm install --legacy-peer-deps --no-package-lock @nice-tools/fake-llm@latest
 
       - name: Build & Export demo app
         working-directory: apps/demo-nextjs

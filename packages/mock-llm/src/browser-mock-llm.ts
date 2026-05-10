@@ -22,12 +22,12 @@ export interface BrowserMockLLMOptions {
  * Browser-safe orchestrator for the mock-LLM engine.
  *
  * Loads configuration and data via `fetch()` with no file-system dependencies.
- * Import from `@nice-tools/mock-llm/browser` to keep bundlers from pulling in
+ * Import from `@nice-tools/fake-llm/browser` to keep bundlers from pulling in
  * Node.js-only modules (`fs`, `path`, `@google-cloud/storage`, etc.).
  *
  * @example
  * ```ts
- * import { BrowserMockLLM } from '@nice-tools/mock-llm/browser';
+ * import { BrowserMockLLM } from '@nice-tools/fake-llm/browser';
  *
  * const llm = new BrowserMockLLM({
  *   keywordsUrl: '/data/keywords.json',

@@ -12,7 +12,7 @@ export interface ImageAnalysisResult {
  * Simple image adapter for reading and encoding local images as base64.
  *
  * @server-only This adapter uses Node.js `fs` and `path` APIs and cannot run
- * in a browser environment. Do not import from `@nice-tools/mock-llm/browser`.
+ * in a browser environment. Do not import from `@nice-tools/fake-llm/browser`.
  */
 export class ImageAdapter {
   async readImage(imagePath: string): Promise<ImageAnalysisResult> {

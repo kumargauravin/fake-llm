@@ -1,13 +1,13 @@
 /**
- * @nice-tools/mock-llm — browser entry point
+ * @nice-tools/fake-llm — browser entry point
  *
- * Import from `@nice-tools/mock-llm/browser` to get only isomorphic code that
+ * Import from `@nice-tools/fake-llm/browser` to get only isomorphic code that
  * works in both the browser and Node.js (≥ 18). No `fs`, `path`, or
  * Node.js-only cloud SDKs are imported from this entry point.
  *
  * Server-only classes (`ConfigLoader`, `MockCosmosAdapter`, `ImageAdapter`,
  * `GCSAdapter`, `BlobAdapter`, `MockLLM`) are NOT exported here.
- * Import from `@nice-tools/mock-llm` to get those.
+ * Import from `@nice-tools/fake-llm` to get those.
  */
 
 // Types (pure interfaces, fully isomorphic)
