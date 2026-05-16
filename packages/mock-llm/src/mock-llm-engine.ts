@@ -60,6 +60,11 @@ export class MockLLMEngine {
       if (kw.data_source) sources.add(kw.data_source);
     }
     for (const story of this.stories) {
+      if (story.contract?.sources) {
+        for (const source of story.contract.sources) {
+          if (source) sources.add(source);
+        }
+      }
       for (const step of story.resolution_steps) {
         if (step.from_source) sources.add(step.from_source);
       }
@@ -142,6 +147,7 @@ export class MockLLMEngine {
       if (step.action === 'fetch') {
         const queryParams = this.queryBuilder.buildQuery(step, intent);
         const builtFilter = this.queryBuilder.buildSQLWhere(queryParams.filters || {});
+        const preview = this.queryBuilder.buildQueryPreview(step, intent, resolvedKeywords.map(kw => kw.keyword));
         const data = await this.adapter.query(queryParams);
         if (includeDebug) {
           debugSteps.push({
@@ -150,6 +156,8 @@ export class MockLLMEngine {
             source: queryParams.source,
             queryParams,
             builtFilter: builtFilter || `GET ${queryParams.source}/*`,
+            generatedQuery: preview.generatedQuery,
+            searchPattern: preview.searchPattern,
             rowsReturned: data.length,
             sampleRows: data.slice(0, 3)
           });

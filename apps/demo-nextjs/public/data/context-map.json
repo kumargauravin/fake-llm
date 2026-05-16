@@ -1,0 +1,1591 @@
+{
+  "module": {
+    "show_debug": true,
+    "connections": {
+      "mockCosmos": {
+        "basePath": "mock-db"
+      },
+      "mockStorage": {
+        "basePath": "public/data"
+      }
+    }
+  },
+  "keywords": [
+    {
+      "keyword": "blob",
+      "aliases": [
+        "blob content",
+        "document",
+        "static asset",
+        "release note"
+      ],
+      "category": "content",
+      "data_source": "content/docs",
+      "source_kind": "blob",
+      "schema": {
+        "id": "string",
+        "title": "string",
+        "body": "string",
+        "tags": "string[]",
+        "kind": "string"
+      }
+    },
+    {
+      "keyword": "docs",
+      "aliases": [
+        "documentation",
+        "doc",
+        "design doc",
+        "notes"
+      ],
+      "category": "content",
+      "data_source": "content/docs",
+      "source_kind": "blob",
+      "schema": {
+        "id": "string",
+        "title": "string",
+        "body": "string",
+        "tags": "string[]",
+        "kind": "string"
+      }
+    },
+    {
+      "keyword": "release",
+      "aliases": [
+        "release notes",
+        "changelog",
+        "version note",
+        "release summary"
+      ],
+      "category": "content",
+      "data_source": "content/docs",
+      "source_kind": "blob",
+      "schema": {
+        "id": "string",
+        "title": "string",
+        "body": "string",
+        "tags": "string[]",
+        "kind": "string"
+      }
+    },
+    {
+      "keyword": "runbook",
+      "aliases": [
+        "playbook",
+        "operator note",
+        "incident guide",
+        "architecture note"
+      ],
+      "category": "content",
+      "data_source": "content/docs",
+      "source_kind": "blob",
+      "schema": {
+        "id": "string",
+        "title": "string",
+        "body": "string",
+        "tags": "string[]",
+        "kind": "string"
+      }
+    },
+    {
+      "keyword": "habit",
+      "category": "entity",
+      "aliases": [
+        "routine",
+        "practice",
+        "daily habit",
+        "habits"
+      ],
+      "data_source": "learnings/habits"
+    },
+    {
+      "keyword": "streak",
+      "category": "metric",
+      "aliases": [
+        "streak count",
+        "consecutive days",
+        "current streak"
+      ],
+      "data_source": "learnings/habits"
+    },
+    {
+      "keyword": "frequency",
+      "category": "attribute",
+      "aliases": [
+        "how often",
+        "recurrence",
+        "repeat"
+      ],
+      "data_source": "learnings/habits"
+    },
+    {
+      "keyword": "category",
+      "category": "attribute",
+      "aliases": [
+        "type",
+        "group",
+        "tag"
+      ],
+      "data_source": "learnings/habits"
+    },
+    {
+      "keyword": "fitness",
+      "category": "category-value",
+      "aliases": [
+        "exercise",
+        "workout",
+        "health",
+        "physical"
+      ],
+      "data_source": "learnings/habits"
+    },
+    {
+      "keyword": "learning",
+      "category": "category-value",
+      "aliases": [
+        "study",
+        "reading",
+        "education",
+        "knowledge"
+      ],
+      "data_source": "learnings/habits"
+    },
+    {
+      "keyword": "mindfulness",
+      "category": "category-value",
+      "aliases": [
+        "meditation",
+        "mental health",
+        "calm",
+        "focus"
+      ],
+      "data_source": "learnings/habits"
+    },
+    {
+      "keyword": "hygiene",
+      "category": "category-value",
+      "aliases": [
+        "grooming",
+        "cleanliness",
+        "self-care"
+      ],
+      "data_source": "learnings/habits"
+    },
+    {
+      "keyword": "employee",
+      "aliases": [
+        "employees",
+        "staff",
+        "people",
+        "worker"
+      ],
+      "category": "domain",
+      "data_source": "hr/employees",
+      "source_kind": "cosmos",
+      "schema": {
+        "employee_id": "string",
+        "name": "string",
+        "zone": "string",
+        "level": "string",
+        "salary": "number",
+        "department": "string",
+        "role": "string"
+      }
+    },
+    {
+      "keyword": "zone",
+      "aliases": [
+        "region",
+        "area",
+        "location",
+        "territory"
+      ],
+      "category": "attribute",
+      "data_source": "hr/employees",
+      "source_kind": "cosmos",
+      "schema": {
+        "employee_id": "string",
+        "name": "string",
+        "zone": "string",
+        "level": "string",
+        "salary": "number",
+        "department": "string",
+        "role": "string"
+      }
+    },
+    {
+      "keyword": "level",
+      "aliases": [
+        "grade",
+        "band",
+        "tier",
+        "seniority"
+      ],
+      "category": "attribute",
+      "data_source": "hr/employees",
+      "source_kind": "cosmos",
+      "schema": {
+        "employee_id": "string",
+        "name": "string",
+        "zone": "string",
+        "level": "string",
+        "salary": "number",
+        "department": "string",
+        "role": "string"
+      }
+    },
+    {
+      "keyword": "salary",
+      "aliases": [
+        "pay",
+        "compensation",
+        "income",
+        "base pay"
+      ],
+      "category": "metric",
+      "data_source": "hr/employees",
+      "source_kind": "cosmos",
+      "schema": {
+        "employee_id": "string",
+        "name": "string",
+        "zone": "string",
+        "level": "string",
+        "salary": "number",
+        "department": "string",
+        "role": "string"
+      }
+    },
+    {
+      "keyword": "kids",
+      "aliases": [
+        "children",
+        "kid",
+        "kid questions",
+        "kids questions"
+      ],
+      "category": "domain",
+      "data_source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "stars",
+      "aliases": [
+        "star",
+        "twinkle",
+        "night sky",
+        "space"
+      ],
+      "category": "topic",
+      "data_source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "rainbow",
+      "aliases": [
+        "rainbows",
+        "color arc",
+        "after rain",
+        "prism"
+      ],
+      "category": "topic",
+      "data_source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "moon",
+      "aliases": [
+        "lunar",
+        "moonlight",
+        "moon phases",
+        "crescent"
+      ],
+      "category": "topic",
+      "data_source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "log",
+      "aliases": [
+        "logs",
+        "log entry",
+        "log line",
+        "trace output"
+      ],
+      "category": "observability",
+      "data_source": "observability/openobserve",
+      "source_kind": "logs",
+      "schema": {
+        "id": "string",
+        "timestamp": "string",
+        "level": "string",
+        "service": "string",
+        "message": "string",
+        "trace_id": "string"
+      }
+    },
+    {
+      "keyword": "openobserve",
+      "aliases": [
+        "observability",
+        "log search",
+        "log explorer",
+        "open observe"
+      ],
+      "category": "observability",
+      "data_source": "observability/openobserve",
+      "source_kind": "logs",
+      "schema": {
+        "id": "string",
+        "timestamp": "string",
+        "level": "string",
+        "service": "string",
+        "message": "string",
+        "trace_id": "string"
+      }
+    },
+    {
+      "keyword": "error",
+      "aliases": [
+        "incident",
+        "failure",
+        "warning",
+        "exception"
+      ],
+      "category": "observability",
+      "data_source": "observability/openobserve",
+      "source_kind": "logs",
+      "schema": {
+        "id": "string",
+        "timestamp": "string",
+        "level": "string",
+        "service": "string",
+        "message": "string",
+        "trace_id": "string"
+      }
+    },
+    {
+      "keyword": "trace",
+      "aliases": [
+        "trace id",
+        "request trace",
+        "span",
+        "correlate"
+      ],
+      "category": "observability",
+      "data_source": "observability/openobserve",
+      "source_kind": "logs",
+      "schema": {
+        "id": "string",
+        "timestamp": "string",
+        "level": "string",
+        "service": "string",
+        "message": "string",
+        "trace_id": "string"
+      }
+    },
+    {
+      "keyword": "gravity",
+      "aliases": [
+        "what is gravity",
+        "gravitational force",
+        "gravity force",
+        "mass attraction"
+      ],
+      "category": "science",
+      "data_source": "knowledge/science",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "sky",
+      "aliases": [
+        "blue sky",
+        "why is the sky blue",
+        "sky color",
+        "sky colour",
+        "color of sky",
+        "colour of sky",
+        "what color is sky",
+        "what colour is sky",
+        "rayleigh scattering",
+        "atmosphere scattering"
+      ],
+      "category": "science",
+      "data_source": "knowledge/science",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "weather",
+      "aliases": [
+        "rain",
+        "sunny",
+        "clouds",
+        "cloud",
+        "atmosphere",
+        "wind",
+        "storm",
+        "humidity",
+        "temperature"
+      ],
+      "category": "science",
+      "data_source": "knowledge/science",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "inventory",
+      "aliases": [
+        "stock",
+        "catalog",
+        "products",
+        "shop inventory"
+      ],
+      "category": "domain",
+      "data_source": "shop/inventory",
+      "source_kind": "cosmos",
+      "schema": {
+        "sku": "string",
+        "item": "string",
+        "category": "string",
+        "stock": "number",
+        "warehouse": "string",
+        "reorder_level": "number",
+        "price": "number"
+      }
+    },
+    {
+      "keyword": "warehouse",
+      "aliases": [
+        "zone",
+        "storage",
+        "fulfillment",
+        "location"
+      ],
+      "category": "attribute",
+      "data_source": "shop/inventory",
+      "source_kind": "cosmos",
+      "schema": {
+        "sku": "string",
+        "item": "string",
+        "category": "string",
+        "stock": "number",
+        "warehouse": "string",
+        "reorder_level": "number",
+        "price": "number"
+      }
+    },
+    {
+      "keyword": "stock",
+      "aliases": [
+        "low stock",
+        "inventory count",
+        "quantity",
+        "available"
+      ],
+      "category": "metric",
+      "data_source": "shop/inventory",
+      "source_kind": "cosmos",
+      "schema": {
+        "sku": "string",
+        "item": "string",
+        "category": "string",
+        "stock": "number",
+        "warehouse": "string",
+        "reorder_level": "number",
+        "price": "number"
+      }
+    },
+    {
+      "keyword": "reorder",
+      "aliases": [
+        "reorder level",
+        "restock",
+        "refill",
+        "need to order"
+      ],
+      "category": "action",
+      "data_source": "shop/inventory",
+      "source_kind": "cosmos",
+      "schema": {
+        "sku": "string",
+        "item": "string",
+        "category": "string",
+        "stock": "number",
+        "warehouse": "string",
+        "reorder_level": "number",
+        "price": "number"
+      }
+    }
+  ],
+  "stories": [
+    {
+      "story_id": "content-docs-001",
+      "description": "Find release notes and docs stored as blob content.",
+      "keywords": [
+        "blob",
+        "release",
+        "runbook"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "release",
+          "from_source": "content/docs"
+        }
+      ],
+      "contract": {
+        "source_kind": "blob",
+        "sources": [
+          "content/docs"
+        ],
+        "patterns": [
+          "release notes",
+          "architecture note",
+          "runbook"
+        ],
+        "query_examples": [
+          "show release notes blob content",
+          "find runbook docs for the latest release"
+        ],
+        "notes": "Demonstrates blob-like document retrieval from static assets."
+      }
+    },
+    {
+      "story_id": "content-docs-002",
+      "description": "Resolve architecture notes and onboarding docs from the same blob set.",
+      "keywords": [
+        "runbook",
+        "blob"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "runbook",
+          "from_source": "content/docs"
+        }
+      ],
+      "contract": {
+        "source_kind": "blob",
+        "sources": [
+          "content/docs"
+        ],
+        "patterns": [
+          "architecture",
+          "onboarding",
+          "playbook"
+        ],
+        "query_examples": [
+          "find architecture note blob content",
+          "show onboarding docs"
+        ],
+        "notes": "Used by the demo to explain how static blob content can be queried like a collection."
+      }
+    },
+    {
+      "story_id": "cross-source-001",
+      "description": "Match a release note blob with incident logs.",
+      "keywords": [
+        "release",
+        "error",
+        "trace"
+      ],
+      "relations": [
+        {
+          "from_keyword": "release",
+          "to_keyword": "error",
+          "cardinality": "one-to-many",
+          "join_via": "release_id"
+        }
+      ],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "release",
+          "from_source": "content/docs"
+        },
+        {
+          "step": 2,
+          "action": "fetch",
+          "keyword": "error",
+          "from_source": "observability/openobserve"
+        }
+      ],
+      "contract": {
+        "source_kind": "cross-source",
+        "sources": [
+          "content/docs",
+          "observability/openobserve"
+        ],
+        "patterns": [
+          "release -> incident",
+          "blob docs + logs",
+          "multi story contract"
+        ],
+        "query_examples": [
+          "correlate release notes with error logs",
+          "show docs and traces for the latest incident"
+        ],
+        "notes": "This is the multi-source demo contract for discovery and debugging."
+      }
+    },
+    {
+      "story_id": "story_habit_001",
+      "description": "List all habits",
+      "keywords": [
+        "habit"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "habit",
+          "from_source": "learnings/habits"
+        }
+      ]
+    },
+    {
+      "story_id": "story_habit_002",
+      "description": "Find habits by category",
+      "keywords": [
+        "habit",
+        "fitness"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "habit",
+          "from_source": "learnings/habits"
+        }
+      ]
+    },
+    {
+      "story_id": "story_habit_003",
+      "description": "Compare two habits",
+      "keywords": [
+        "habit"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "habit",
+          "from_source": "learnings/habits"
+        },
+        {
+          "step": 2,
+          "action": "compare",
+          "keyword": "habit",
+          "from_source": "learnings/habits"
+        }
+      ]
+    },
+    {
+      "story_id": "story_habit_004",
+      "description": "Explain a habit including streak and frequency",
+      "keywords": [
+        "habit",
+        "streak",
+        "frequency"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "habit",
+          "from_source": "learnings/habits"
+        }
+      ]
+    },
+    {
+      "story_id": "story_habit_005",
+      "description": "Find habits by streak",
+      "keywords": [
+        "habit",
+        "streak"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "habit",
+          "from_source": "learnings/habits"
+        }
+      ]
+    },
+    {
+      "story_id": "hr-employee-001",
+      "description": "Query employees by zone, level, salary, or department.",
+      "keywords": [
+        "employee",
+        "zone",
+        "level",
+        "salary"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "employee",
+          "from_source": "hr/employees"
+        }
+      ],
+      "contract": {
+        "source_kind": "cosmos",
+        "sources": [
+          "hr/employees"
+        ],
+        "patterns": [
+          "zone lookup",
+          "salary band",
+          "level filter"
+        ],
+        "query_examples": [
+          "show employees with zone is north and level is L3",
+          "find salary above 90000 in engineering",
+          "which employees are in zone east"
+        ],
+        "notes": "This is the classic HR-style Cosmos demo with zone and salary filters."
+      }
+    },
+    {
+      "story_id": "kids-questions-001",
+      "description": "Answer kid-friendly questions with simple science language.",
+      "keywords": [
+        "kids",
+        "stars",
+        "rainbow",
+        "moon"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "kids",
+          "from_source": "knowledge/kids"
+        }
+      ],
+      "contract": {
+        "source_kind": "cosmos",
+        "sources": [
+          "knowledge/kids"
+        ],
+        "patterns": [
+          "why questions",
+          "simple answer",
+          "kid-friendly explanation"
+        ],
+        "query_examples": [
+          "why do stars twinkle?",
+          "how do rainbows form?",
+          "why is the moon bright?"
+        ],
+        "notes": "This keeps the kids demo on simple natural-language questions."
+      }
+    },
+    {
+      "story_id": "observability-logs-001",
+      "description": "Search OpenObserve-style logs for errors and traces.",
+      "keywords": [
+        "log",
+        "error",
+        "trace"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "error",
+          "from_source": "observability/openobserve"
+        }
+      ],
+      "contract": {
+        "source_kind": "logs",
+        "sources": [
+          "observability/openobserve"
+        ],
+        "patterns": [
+          "error logs",
+          "trace correlation",
+          "service failure"
+        ],
+        "query_examples": [
+          "show error logs for checkout",
+          "find trace id for the payment service"
+        ],
+        "notes": "Illustrates log-style records with explicit filters."
+      }
+    },
+    {
+      "story_id": "observability-logs-002",
+      "description": "Correlate service logs with a trace identifier.",
+      "keywords": [
+        "trace",
+        "service"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "trace",
+          "from_source": "observability/openobserve"
+        }
+      ],
+      "contract": {
+        "source_kind": "logs",
+        "sources": [
+          "observability/openobserve"
+        ],
+        "patterns": [
+          "trace_id",
+          "request correlation",
+          "latency investigation"
+        ],
+        "query_examples": [
+          "find logs where trace_id equals trace-4492",
+          "search request traces for checkout service"
+        ],
+        "notes": "The UI can use this contract to explain cross-log debugging."
+      }
+    },
+    {
+      "story_id": "science-matter-001",
+      "description": "Answers questions about matter, physics, water and gravity.",
+      "keywords": [
+        "gravity"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "gravity",
+          "from_source": "knowledge/science"
+        }
+      ]
+    },
+    {
+      "story_id": "science-sky-001",
+      "description": "Answers basic science questions about why the sky is blue.",
+      "keywords": [
+        "sky"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "sky",
+          "from_source": "knowledge/science"
+        }
+      ]
+    },
+    {
+      "story_id": "science-weather-001",
+      "description": "Answers basic weather and atmosphere questions.",
+      "keywords": [
+        "weather"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "weather",
+          "from_source": "knowledge/science"
+        }
+      ]
+    },
+    {
+      "story_id": "shop-inventory-001",
+      "description": "Find shop inventory by warehouse, stock, or reorder signals.",
+      "keywords": [
+        "inventory",
+        "stock",
+        "warehouse",
+        "reorder"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "inventory",
+          "from_source": "shop/inventory"
+        }
+      ],
+      "contract": {
+        "source_kind": "cosmos",
+        "sources": [
+          "shop/inventory"
+        ],
+        "patterns": [
+          "low stock",
+          "warehouse filter",
+          "reorder lookup"
+        ],
+        "query_examples": [
+          "show low stock snacks in warehouse west",
+          "find sku A-102",
+          "which items need reorder"
+        ],
+        "notes": "This models a classic shop inventory collection."
+      }
+    }
+  ],
+  "taxonomy": [
+    {
+      "id": "kids-questions",
+      "title": "Kids questions",
+      "tagline": "Simple why/how questions with kid-friendly answers.",
+      "source_kind": "cosmos",
+      "source": "knowledge/kids",
+      "keep": [
+        "question",
+        "answer",
+        "topic",
+        "tags"
+      ],
+      "how": [
+        "Cosmos-style JSON docs",
+        "build-time static snapshot",
+        "query by topic and tags"
+      ],
+      "need": [
+        "Ask a natural question",
+        "mention the topic if you know it",
+        "keep it short and simple"
+      ],
+      "examples": [
+        "why do stars twinkle?",
+        "how do rainbows form?",
+        "why is the moon bright?"
+      ],
+      "tags": [
+        "kids",
+        "questions",
+        "science",
+        "simple"
+      ]
+    },
+    {
+      "id": "shop-inventory",
+      "title": "Shop inventory",
+      "tagline": "Stock, warehouse, and reorder lookups for a store.",
+      "source_kind": "cosmos",
+      "source": "shop/inventory",
+      "keep": [
+        "sku",
+        "item",
+        "category",
+        "stock",
+        "warehouse",
+        "reorder_level",
+        "price"
+      ],
+      "how": [
+        "Treat each product row like a Cosmos document",
+        "filter by stock, warehouse, category, or SKU",
+        "serve the snapshot from static JSON"
+      ],
+      "need": [
+        "Give a product or category",
+        "say the warehouse or stock threshold",
+        "add filters like price or reorder level"
+      ],
+      "examples": [
+        "show low stock snacks in warehouse west",
+        "find sku A-102",
+        "which items need reorder"
+      ],
+      "tags": [
+        "inventory",
+        "store",
+        "stock",
+        "warehouse"
+      ]
+    },
+    {
+      "id": "employee-zone-salary",
+      "title": "Employee zone / level / salary",
+      "tagline": "Classic HR lookup with zone, level, and salary filters.",
+      "source_kind": "cosmos",
+      "source": "hr/employees",
+      "keep": [
+        "employee_id",
+        "name",
+        "zone",
+        "level",
+        "salary",
+        "department",
+        "role"
+      ],
+      "how": [
+        "Model employees as Cosmos documents",
+        "query by zone, level, salary bands, or department",
+        "keep the source static for repeatable demos"
+      ],
+      "need": [
+        "Give the zone or level you want",
+        "add a salary threshold if needed",
+        "mention department or role for tighter matching"
+      ],
+      "examples": [
+        "show employees with zone is north and level is L3",
+        "find salary above 90000 in engineering",
+        "which employees are in zone east"
+      ],
+      "tags": [
+        "employee",
+        "zone",
+        "level",
+        "salary",
+        "hr"
+      ]
+    },
+    {
+      "id": "science-facts",
+      "title": "Science facts",
+      "tagline": "Kid-friendly science explanations using the knowledge corpus.",
+      "source_kind": "cosmos",
+      "source": "knowledge/science",
+      "keep": [
+        "id",
+        "question",
+        "answer",
+        "topic",
+        "tags"
+      ],
+      "how": [
+        "Static Cosmos-style JSON records",
+        "fetch answers by topic or keyword",
+        "reuse the same browser query engine"
+      ],
+      "need": [
+        "Ask a science question",
+        "mention sky, weather, or gravity when possible",
+        "use natural wording"
+      ],
+      "examples": [
+        "why is the sky blue?",
+        "why does rain happen?",
+        "what is gravity?"
+      ],
+      "tags": [
+        "science",
+        "kids",
+        "weather",
+        "gravity"
+      ]
+    },
+    {
+      "id": "blob-docs",
+      "title": "Blob / static docs",
+      "tagline": "Release notes and runbooks served as static content.",
+      "source_kind": "blob",
+      "source": "content/docs",
+      "keep": [
+        "id",
+        "title",
+        "body",
+        "tags",
+        "kind"
+      ],
+      "how": [
+        "Store documents as blob-like JSON assets",
+        "index by tags and document kind",
+        "serve from the generated /data snapshot"
+      ],
+      "need": [
+        "Give a document kind or title hint",
+        "mention release, runbook, or architecture",
+        "ask for the blob content directly"
+      ],
+      "examples": [
+        "show release notes",
+        "find the runbook for demo query failures",
+        "show architecture guide docs"
+      ],
+      "tags": [
+        "blob",
+        "docs",
+        "release",
+        "runbook"
+      ]
+    },
+    {
+      "id": "observability-logs",
+      "title": "Observability logs",
+      "tagline": "Log-like records with trace and service filters.",
+      "source_kind": "logs",
+      "source": "observability/openobserve",
+      "keep": [
+        "id",
+        "timestamp",
+        "level",
+        "service",
+        "message",
+        "trace_id"
+      ],
+      "how": [
+        "Keep records in a log-style collection",
+        "search by message, trace_id, service, or level",
+        "present the query and the pattern in debug mode"
+      ],
+      "need": [
+        "Give a service or trace id",
+        "mention the level or incident you care about",
+        "include a message hint for filtering"
+      ],
+      "examples": [
+        "show error logs for checkout",
+        "find trace id trace-4492",
+        "search payment warnings"
+      ],
+      "tags": [
+        "logs",
+        "trace",
+        "service",
+        "errors"
+      ]
+    }
+  ],
+  "dataSources": [
+    "content/docs",
+    "learnings/habits",
+    "hr/employees",
+    "knowledge/kids",
+    "observability/openobserve",
+    "knowledge/science",
+    "shop/inventory"
+  ],
+  "sourceCatalog": [
+    {
+      "source": "content/docs",
+      "source_kind": "blob",
+      "file": "data/content/docs.json",
+      "rowCount": 4
+    },
+    {
+      "source": "learnings/habits",
+      "source_kind": "cosmos",
+      "file": "data/learnings/habits.json",
+      "rowCount": 8
+    },
+    {
+      "source": "hr/employees",
+      "source_kind": "cosmos",
+      "file": "data/hr/employees.json",
+      "rowCount": 4
+    },
+    {
+      "source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "file": "data/knowledge/kids.json",
+      "rowCount": 4
+    },
+    {
+      "source": "observability/openobserve",
+      "source_kind": "logs",
+      "file": "data/observability/openobserve.json",
+      "rowCount": 4
+    },
+    {
+      "source": "knowledge/science",
+      "source_kind": "cosmos",
+      "file": "data/knowledge/science.json",
+      "rowCount": 8
+    },
+    {
+      "source": "shop/inventory",
+      "source_kind": "cosmos",
+      "file": "data/shop/inventory.json",
+      "rowCount": 4
+    }
+  ],
+  "storyContracts": [
+    {
+      "story_id": "content-docs-001",
+      "description": "Find release notes and docs stored as blob content.",
+      "keywords": [
+        "blob",
+        "release",
+        "runbook"
+      ],
+      "source_kind": "blob",
+      "sources": [
+        "content/docs"
+      ],
+      "patterns": [
+        "release notes",
+        "architecture note",
+        "runbook"
+      ],
+      "query_examples": [
+        "show release notes blob content",
+        "find runbook docs for the latest release"
+      ],
+      "notes": "Demonstrates blob-like document retrieval from static assets."
+    },
+    {
+      "story_id": "content-docs-002",
+      "description": "Resolve architecture notes and onboarding docs from the same blob set.",
+      "keywords": [
+        "runbook",
+        "blob"
+      ],
+      "source_kind": "blob",
+      "sources": [
+        "content/docs"
+      ],
+      "patterns": [
+        "architecture",
+        "onboarding",
+        "playbook"
+      ],
+      "query_examples": [
+        "find architecture note blob content",
+        "show onboarding docs"
+      ],
+      "notes": "Used by the demo to explain how static blob content can be queried like a collection."
+    },
+    {
+      "story_id": "cross-source-001",
+      "description": "Match a release note blob with incident logs.",
+      "keywords": [
+        "release",
+        "error",
+        "trace"
+      ],
+      "source_kind": "cross-source",
+      "sources": [
+        "content/docs",
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "release -> incident",
+        "blob docs + logs",
+        "multi story contract"
+      ],
+      "query_examples": [
+        "correlate release notes with error logs",
+        "show docs and traces for the latest incident"
+      ],
+      "notes": "This is the multi-source demo contract for discovery and debugging."
+    },
+    {
+      "story_id": "story_habit_001",
+      "description": "List all habits",
+      "keywords": [
+        "habit"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "learnings/habits"
+      ],
+      "patterns": [
+        "habit"
+      ],
+      "query_examples": [],
+      "notes": ""
+    },
+    {
+      "story_id": "story_habit_002",
+      "description": "Find habits by category",
+      "keywords": [
+        "habit",
+        "fitness"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "learnings/habits"
+      ],
+      "patterns": [
+        "habit",
+        "fitness"
+      ],
+      "query_examples": [],
+      "notes": ""
+    },
+    {
+      "story_id": "story_habit_003",
+      "description": "Compare two habits",
+      "keywords": [
+        "habit"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "learnings/habits"
+      ],
+      "patterns": [
+        "habit"
+      ],
+      "query_examples": [],
+      "notes": ""
+    },
+    {
+      "story_id": "story_habit_004",
+      "description": "Explain a habit including streak and frequency",
+      "keywords": [
+        "habit",
+        "streak",
+        "frequency"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "learnings/habits"
+      ],
+      "patterns": [
+        "habit",
+        "streak",
+        "frequency"
+      ],
+      "query_examples": [],
+      "notes": ""
+    },
+    {
+      "story_id": "story_habit_005",
+      "description": "Find habits by streak",
+      "keywords": [
+        "habit",
+        "streak"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "learnings/habits"
+      ],
+      "patterns": [
+        "habit",
+        "streak"
+      ],
+      "query_examples": [],
+      "notes": ""
+    },
+    {
+      "story_id": "hr-employee-001",
+      "description": "Query employees by zone, level, salary, or department.",
+      "keywords": [
+        "employee",
+        "zone",
+        "level",
+        "salary"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "hr/employees"
+      ],
+      "patterns": [
+        "zone lookup",
+        "salary band",
+        "level filter"
+      ],
+      "query_examples": [
+        "show employees with zone is north and level is L3",
+        "find salary above 90000 in engineering",
+        "which employees are in zone east"
+      ],
+      "notes": "This is the classic HR-style Cosmos demo with zone and salary filters."
+    },
+    {
+      "story_id": "kids-questions-001",
+      "description": "Answer kid-friendly questions with simple science language.",
+      "keywords": [
+        "kids",
+        "stars",
+        "rainbow",
+        "moon"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "knowledge/kids"
+      ],
+      "patterns": [
+        "why questions",
+        "simple answer",
+        "kid-friendly explanation"
+      ],
+      "query_examples": [
+        "why do stars twinkle?",
+        "how do rainbows form?",
+        "why is the moon bright?"
+      ],
+      "notes": "This keeps the kids demo on simple natural-language questions."
+    },
+    {
+      "story_id": "observability-logs-001",
+      "description": "Search OpenObserve-style logs for errors and traces.",
+      "keywords": [
+        "log",
+        "error",
+        "trace"
+      ],
+      "source_kind": "logs",
+      "sources": [
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "error logs",
+        "trace correlation",
+        "service failure"
+      ],
+      "query_examples": [
+        "show error logs for checkout",
+        "find trace id for the payment service"
+      ],
+      "notes": "Illustrates log-style records with explicit filters."
+    },
+    {
+      "story_id": "observability-logs-002",
+      "description": "Correlate service logs with a trace identifier.",
+      "keywords": [
+        "trace",
+        "service"
+      ],
+      "source_kind": "logs",
+      "sources": [
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "trace_id",
+        "request correlation",
+        "latency investigation"
+      ],
+      "query_examples": [
+        "find logs where trace_id equals trace-4492",
+        "search request traces for checkout service"
+      ],
+      "notes": "The UI can use this contract to explain cross-log debugging."
+    },
+    {
+      "story_id": "science-matter-001",
+      "description": "Answers questions about matter, physics, water and gravity.",
+      "keywords": [
+        "gravity"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "knowledge/science"
+      ],
+      "patterns": [
+        "gravity"
+      ],
+      "query_examples": [],
+      "notes": ""
+    },
+    {
+      "story_id": "science-sky-001",
+      "description": "Answers basic science questions about why the sky is blue.",
+      "keywords": [
+        "sky"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "knowledge/science"
+      ],
+      "patterns": [
+        "sky"
+      ],
+      "query_examples": [],
+      "notes": ""
+    },
+    {
+      "story_id": "science-weather-001",
+      "description": "Answers basic weather and atmosphere questions.",
+      "keywords": [
+        "weather"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "knowledge/science"
+      ],
+      "patterns": [
+        "weather"
+      ],
+      "query_examples": [],
+      "notes": ""
+    },
+    {
+      "story_id": "shop-inventory-001",
+      "description": "Find shop inventory by warehouse, stock, or reorder signals.",
+      "keywords": [
+        "inventory",
+        "stock",
+        "warehouse",
+        "reorder"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "shop/inventory"
+      ],
+      "patterns": [
+        "low stock",
+        "warehouse filter",
+        "reorder lookup"
+      ],
+      "query_examples": [
+        "show low stock snacks in warehouse west",
+        "find sku A-102",
+        "which items need reorder"
+      ],
+      "notes": "This models a classic shop inventory collection."
+    }
+  ]
+}

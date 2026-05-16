@@ -1,0 +1,8 @@
+{
+  "id": "doc_runbook_001",
+  "title": "Runbook: Investigate Demo Query Failures",
+  "kind": "runbook",
+  "body": "Check the context map, verify the generated JSON assets, and inspect the browser query path before falling back to server APIs.",
+  "tags": ["runbook", "incident", "query", "debug"],
+  "audience": "support"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "doc_arch_001",
+  "title": "Architecture Guide: Mock Cosmos and Blob Content",
+  "kind": "architecture",
+  "body": "Mock DB sources are queried like Cosmos containers, while blob content is exposed through static JSON assets for browser demos.",
+  "tags": ["architecture", "cosmos", "blob", "browser"],
+  "audience": "engineering"
+}

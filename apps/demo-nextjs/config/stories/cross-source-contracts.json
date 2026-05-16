@@ -1,0 +1,39 @@
+[
+  {
+    "story_id": "cross-source-001",
+    "description": "Match a release note blob with incident logs.",
+    "keywords": ["release", "error", "trace"],
+    "relations": [
+      {
+        "from_keyword": "release",
+        "to_keyword": "error",
+        "cardinality": "one-to-many",
+        "join_via": "release_id"
+      }
+    ],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "release",
+        "from_source": "content/docs"
+      },
+      {
+        "step": 2,
+        "action": "fetch",
+        "keyword": "error",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "cross-source",
+      "sources": ["content/docs", "observability/openobserve"],
+      "patterns": ["release -> incident", "blob docs + logs", "multi story contract"],
+      "query_examples": [
+        "correlate release notes with error logs",
+        "show docs and traces for the latest incident"
+      ],
+      "notes": "This is the multi-source demo contract for discovery and debugging."
+    }
+  }
+]

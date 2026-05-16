@@ -1,0 +1,38 @@
+[
+  {
+    "id": "log_001",
+    "timestamp": "2026-05-15T10:15:22Z",
+    "level": "error",
+    "service": "checkout",
+    "message": "Checkout API returned 500 while resolving release context.",
+    "trace_id": "trace-4492",
+    "release_id": "release-2026-05"
+  },
+  {
+    "id": "log_004",
+    "timestamp": "2026-05-15T10:19:05Z",
+    "level": "error",
+    "service": "payment",
+    "message": "Payment service failed to find a matching story contract.",
+    "trace_id": "trace-8841",
+    "release_id": "release-2026-05"
+  },
+  {
+    "id": "log_003",
+    "timestamp": "2026-05-15T10:17:40Z",
+    "level": "info",
+    "service": "payment",
+    "message": "Payment service completed the request after a static context fetch.",
+    "trace_id": "trace-8841",
+    "release_id": "release-2026-05"
+  },
+  {
+    "id": "log_002",
+    "timestamp": "2026-05-15T10:16:03Z",
+    "level": "warn",
+    "service": "checkout",
+    "message": "Context cache miss, reloading generated static JSON assets.",
+    "trace_id": "trace-4492",
+    "release_id": "release-2026-05"
+  }
+]

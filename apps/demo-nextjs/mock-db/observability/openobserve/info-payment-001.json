@@ -1,0 +1,9 @@
+{
+  "id": "log_003",
+  "timestamp": "2026-05-15T10:17:40Z",
+  "level": "info",
+  "service": "payment",
+  "message": "Payment service completed the request after a static context fetch.",
+  "trace_id": "trace-8841",
+  "release_id": "release-2026-05"
+}

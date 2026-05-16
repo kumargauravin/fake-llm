@@ -47,7 +47,16 @@ export interface KeywordEntry {
   aliases: string[];
   category: string;
   data_source: string; // e.g., "learnings/habits"
+  source_kind?: 'cosmos' | 'blob' | 'logs' | 'static';
   schema?: Record<string, string>; // field name → type
+}
+
+export interface StoryContract {
+  source_kind: 'cosmos' | 'blob' | 'logs' | 'cross-source';
+  sources: string[];
+  patterns?: string[];
+  query_examples?: string[];
+  notes?: string;
 }
 
 /**
@@ -59,6 +68,7 @@ export interface Story {
   keywords: string[];
   relations: Relation[];
   resolution_steps: ResolutionStep[];
+  contract?: StoryContract;
 }
 
 export interface Relation {
@@ -101,6 +111,8 @@ export interface AnswerDebugStep {
   source?: string;
   queryParams?: QueryParams;
   builtFilter?: string;
+  generatedQuery?: string;
+  searchPattern?: string;
   rowsReturned: number;
   sampleRows: any[];
 }

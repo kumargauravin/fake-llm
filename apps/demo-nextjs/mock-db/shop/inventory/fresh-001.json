@@ -1,0 +1,10 @@
+{
+  "sku": "FRS-301",
+  "item": "Apple Pack",
+  "category": "fresh",
+  "stock": 26,
+  "warehouse": "north",
+  "reorder_level": 18,
+  "price": 4.5,
+  "tags": ["fruit", "fresh", "produce"]
+}

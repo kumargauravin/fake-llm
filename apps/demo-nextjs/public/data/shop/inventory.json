@@ -1,0 +1,57 @@
+[
+  {
+    "sku": "FRS-301",
+    "item": "Apple Pack",
+    "category": "fresh",
+    "stock": 26,
+    "warehouse": "north",
+    "reorder_level": 18,
+    "price": 4.5,
+    "tags": [
+      "fruit",
+      "fresh",
+      "produce"
+    ]
+  },
+  {
+    "sku": "PAN-101",
+    "item": "Pasta",
+    "category": "pantry",
+    "stock": 8,
+    "warehouse": "west",
+    "reorder_level": 15,
+    "price": 3.25,
+    "tags": [
+      "dry-goods",
+      "reorder"
+    ]
+  },
+  {
+    "sku": "SNK-001",
+    "item": "Salted Chips",
+    "category": "snacks",
+    "stock": 12,
+    "warehouse": "west",
+    "reorder_level": 20,
+    "price": 2.5,
+    "tags": [
+      "chips",
+      "snack",
+      "low-stock"
+    ]
+  },
+  {
+    "sku": "SNK-002",
+    "item": "Chocolate Bar",
+    "category": "snacks",
+    "stock": 48,
+    "warehouse": "east",
+    "reorder_level": 30,
+    "price": 1.75,
+    "tags": [
+      "chocolate",
+      "sweet",
+      "candy"
+    ]
+  }
+]

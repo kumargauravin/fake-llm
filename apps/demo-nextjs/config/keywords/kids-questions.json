@@ -1,0 +1,58 @@
+[
+  {
+    "keyword": "kids",
+    "aliases": ["children", "kid", "kid questions", "kids questions"],
+    "category": "domain",
+    "data_source": "knowledge/kids",
+    "source_kind": "cosmos",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "stars",
+    "aliases": ["star", "twinkle", "night sky", "space"],
+    "category": "topic",
+    "data_source": "knowledge/kids",
+    "source_kind": "cosmos",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "rainbow",
+    "aliases": ["rainbows", "color arc", "after rain", "prism"],
+    "category": "topic",
+    "data_source": "knowledge/kids",
+    "source_kind": "cosmos",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "moon",
+    "aliases": ["lunar", "moonlight", "moon phases", "crescent"],
+    "category": "topic",
+    "data_source": "knowledge/kids",
+    "source_kind": "cosmos",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  }
+]

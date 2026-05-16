@@ -1,5 +1,120 @@
 [
   {
+    "story_id": "content-docs-001",
+    "description": "Find release notes and docs stored as blob content.",
+    "keywords": [
+      "blob",
+      "release",
+      "runbook"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "release",
+        "from_source": "content/docs"
+      }
+    ],
+    "contract": {
+      "source_kind": "blob",
+      "sources": [
+        "content/docs"
+      ],
+      "patterns": [
+        "release notes",
+        "architecture note",
+        "runbook"
+      ],
+      "query_examples": [
+        "show release notes blob content",
+        "find runbook docs for the latest release"
+      ],
+      "notes": "Demonstrates blob-like document retrieval from static assets."
+    }
+  },
+  {
+    "story_id": "content-docs-002",
+    "description": "Resolve architecture notes and onboarding docs from the same blob set.",
+    "keywords": [
+      "runbook",
+      "blob"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "runbook",
+        "from_source": "content/docs"
+      }
+    ],
+    "contract": {
+      "source_kind": "blob",
+      "sources": [
+        "content/docs"
+      ],
+      "patterns": [
+        "architecture",
+        "onboarding",
+        "playbook"
+      ],
+      "query_examples": [
+        "find architecture note blob content",
+        "show onboarding docs"
+      ],
+      "notes": "Used by the demo to explain how static blob content can be queried like a collection."
+    }
+  },
+  {
+    "story_id": "cross-source-001",
+    "description": "Match a release note blob with incident logs.",
+    "keywords": [
+      "release",
+      "error",
+      "trace"
+    ],
+    "relations": [
+      {
+        "from_keyword": "release",
+        "to_keyword": "error",
+        "cardinality": "one-to-many",
+        "join_via": "release_id"
+      }
+    ],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "release",
+        "from_source": "content/docs"
+      },
+      {
+        "step": 2,
+        "action": "fetch",
+        "keyword": "error",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "cross-source",
+      "sources": [
+        "content/docs",
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "release -> incident",
+        "blob docs + logs",
+        "multi story contract"
+      ],
+      "query_examples": [
+        "correlate release notes with error logs",
+        "show docs and traces for the latest incident"
+      ],
+      "notes": "This is the multi-source demo contract for discovery and debugging."
+    }
+  },
+  {
     "story_id": "story_habit_001",
     "description": "List all habits",
     "keywords": [
@@ -90,6 +205,145 @@
     ]
   },
   {
+    "story_id": "hr-employee-001",
+    "description": "Query employees by zone, level, salary, or department.",
+    "keywords": [
+      "employee",
+      "zone",
+      "level",
+      "salary"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "employee",
+        "from_source": "hr/employees"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": [
+        "hr/employees"
+      ],
+      "patterns": [
+        "zone lookup",
+        "salary band",
+        "level filter"
+      ],
+      "query_examples": [
+        "show employees with zone is north and level is L3",
+        "find salary above 90000 in engineering",
+        "which employees are in zone east"
+      ],
+      "notes": "This is the classic HR-style Cosmos demo with zone and salary filters."
+    }
+  },
+  {
+    "story_id": "kids-questions-001",
+    "description": "Answer kid-friendly questions with simple science language.",
+    "keywords": [
+      "kids",
+      "stars",
+      "rainbow",
+      "moon"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "kids",
+        "from_source": "knowledge/kids"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": [
+        "knowledge/kids"
+      ],
+      "patterns": [
+        "why questions",
+        "simple answer",
+        "kid-friendly explanation"
+      ],
+      "query_examples": [
+        "why do stars twinkle?",
+        "how do rainbows form?",
+        "why is the moon bright?"
+      ],
+      "notes": "This keeps the kids demo on simple natural-language questions."
+    }
+  },
+  {
+    "story_id": "observability-logs-001",
+    "description": "Search OpenObserve-style logs for errors and traces.",
+    "keywords": [
+      "log",
+      "error",
+      "trace"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "error",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "logs",
+      "sources": [
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "error logs",
+        "trace correlation",
+        "service failure"
+      ],
+      "query_examples": [
+        "show error logs for checkout",
+        "find trace id for the payment service"
+      ],
+      "notes": "Illustrates log-style records with explicit filters."
+    }
+  },
+  {
+    "story_id": "observability-logs-002",
+    "description": "Correlate service logs with a trace identifier.",
+    "keywords": [
+      "trace",
+      "service"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "trace",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "logs",
+      "sources": [
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "trace_id",
+        "request correlation",
+        "latency investigation"
+      ],
+      "query_examples": [
+        "find logs where trace_id equals trace-4492",
+        "search request traces for checkout service"
+      ],
+      "notes": "The UI can use this contract to explain cross-log debugging."
+    }
+  },
+  {
     "story_id": "science-matter-001",
     "description": "Answers questions about matter, physics, water and gravity.",
     "keywords": [
@@ -136,5 +390,41 @@
         "from_source": "knowledge/science"
       }
     ]
+  },
+  {
+    "story_id": "shop-inventory-001",
+    "description": "Find shop inventory by warehouse, stock, or reorder signals.",
+    "keywords": [
+      "inventory",
+      "stock",
+      "warehouse",
+      "reorder"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "inventory",
+        "from_source": "shop/inventory"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": [
+        "shop/inventory"
+      ],
+      "patterns": [
+        "low stock",
+        "warehouse filter",
+        "reorder lookup"
+      ],
+      "query_examples": [
+        "show low stock snacks in warehouse west",
+        "find sku A-102",
+        "which items need reorder"
+      ],
+      "notes": "This models a classic shop inventory collection."
+    }
   }
 ]

@@ -1,0 +1,10 @@
+{
+  "employee_id": "E-003",
+  "name": "Carla",
+  "zone": "north",
+  "level": "L4",
+  "salary": 118000,
+  "department": "engineering",
+  "role": "staff engineer",
+  "tags": ["engineering", "leadership"]
+}

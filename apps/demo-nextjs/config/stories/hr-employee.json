@@ -1,0 +1,27 @@
+[
+  {
+    "story_id": "hr-employee-001",
+    "description": "Query employees by zone, level, salary, or department.",
+    "keywords": ["employee", "zone", "level", "salary"],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "employee",
+        "from_source": "hr/employees"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": ["hr/employees"],
+      "patterns": ["zone lookup", "salary band", "level filter"],
+      "query_examples": [
+        "show employees with zone is north and level is L3",
+        "find salary above 90000 in engineering",
+        "which employees are in zone east"
+      ],
+      "notes": "This is the classic HR-style Cosmos demo with zone and salary filters."
+    }
+  }
+]

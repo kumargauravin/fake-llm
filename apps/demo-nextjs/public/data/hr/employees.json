@@ -1,0 +1,54 @@
+[
+  {
+    "employee_id": "E-001",
+    "name": "Alice",
+    "zone": "north",
+    "level": "L3",
+    "salary": 96000,
+    "department": "engineering",
+    "role": "backend engineer",
+    "tags": [
+      "engineering",
+      "core"
+    ]
+  },
+  {
+    "employee_id": "E-002",
+    "name": "Bob",
+    "zone": "east",
+    "level": "L2",
+    "salary": 72000,
+    "department": "sales",
+    "role": "account executive",
+    "tags": [
+      "sales",
+      "customer"
+    ]
+  },
+  {
+    "employee_id": "E-003",
+    "name": "Carla",
+    "zone": "north",
+    "level": "L4",
+    "salary": 118000,
+    "department": "engineering",
+    "role": "staff engineer",
+    "tags": [
+      "engineering",
+      "leadership"
+    ]
+  },
+  {
+    "employee_id": "E-004",
+    "name": "Dan",
+    "zone": "west",
+    "level": "L1",
+    "salary": 55000,
+    "department": "support",
+    "role": "support specialist",
+    "tags": [
+      "support",
+      "operations"
+    ]
+  }
+]

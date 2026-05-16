@@ -1,0 +1,62 @@
+[
+  {
+    "keyword": "log",
+    "aliases": ["logs", "log entry", "log line", "trace output"],
+    "category": "observability",
+    "data_source": "observability/openobserve",
+    "source_kind": "logs",
+    "schema": {
+      "id": "string",
+      "timestamp": "string",
+      "level": "string",
+      "service": "string",
+      "message": "string",
+      "trace_id": "string"
+    }
+  },
+  {
+    "keyword": "openobserve",
+    "aliases": ["observability", "log search", "log explorer", "open observe"],
+    "category": "observability",
+    "data_source": "observability/openobserve",
+    "source_kind": "logs",
+    "schema": {
+      "id": "string",
+      "timestamp": "string",
+      "level": "string",
+      "service": "string",
+      "message": "string",
+      "trace_id": "string"
+    }
+  },
+  {
+    "keyword": "error",
+    "aliases": ["incident", "failure", "warning", "exception"],
+    "category": "observability",
+    "data_source": "observability/openobserve",
+    "source_kind": "logs",
+    "schema": {
+      "id": "string",
+      "timestamp": "string",
+      "level": "string",
+      "service": "string",
+      "message": "string",
+      "trace_id": "string"
+    }
+  },
+  {
+    "keyword": "trace",
+    "aliases": ["trace id", "request trace", "span", "correlate"],
+    "category": "observability",
+    "data_source": "observability/openobserve",
+    "source_kind": "logs",
+    "schema": {
+      "id": "string",
+      "timestamp": "string",
+      "level": "string",
+      "service": "string",
+      "message": "string",
+      "trace_id": "string"
+    }
+  }
+]

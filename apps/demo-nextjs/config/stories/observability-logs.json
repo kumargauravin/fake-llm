@@ -1,0 +1,50 @@
+[
+  {
+    "story_id": "observability-logs-001",
+    "description": "Search OpenObserve-style logs for errors and traces.",
+    "keywords": ["log", "error", "trace"],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "error",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "logs",
+      "sources": ["observability/openobserve"],
+      "patterns": ["error logs", "trace correlation", "service failure"],
+      "query_examples": [
+        "show error logs for checkout",
+        "find trace id for the payment service"
+      ],
+      "notes": "Illustrates log-style records with explicit filters."
+    }
+  },
+  {
+    "story_id": "observability-logs-002",
+    "description": "Correlate service logs with a trace identifier.",
+    "keywords": ["trace", "service"],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "trace",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "logs",
+      "sources": ["observability/openobserve"],
+      "patterns": ["trace_id", "request correlation", "latency investigation"],
+      "query_examples": [
+        "find logs where trace_id equals trace-4492",
+        "search request traces for checkout service"
+      ],
+      "notes": "The UI can use this contract to explain cross-log debugging."
+    }
+  }
+]

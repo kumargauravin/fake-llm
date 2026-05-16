@@ -8,6 +8,7 @@
  * Outputs:
  *   public/data/keywords.json      – flat array merged from config/keywords/*.json
  *   public/data/stories.json       – flat array merged from config/stories/*.json
+ *   public/data/context-map.json   – demo context manifest for the static UI
  *   public/data/<source>.json      – one file per data_source referenced in keywords:
  *                                    • if mock-db/<source>/ is a directory, all its
  *                                      *.json files are merged into a single array
@@ -28,6 +29,12 @@ function ensureDir(dir) {
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+}
+
+function inferSourceKind(source) {
+  if (source.startsWith('observability/') || source.startsWith('logs/')) return 'logs';
+  if (source.startsWith('content/') || source.startsWith('blob/')) return 'blob';
+  return 'cosmos';
 }
 
 /** Read all *.json files in a directory and flatten them into a single array. */
@@ -56,8 +63,17 @@ const stories = aggregateJsonFiles(path.join(CONFIG_DIR, 'stories'));
 fs.writeFileSync(path.join(OUT_DIR, 'stories.json'), JSON.stringify(stories, null, 2));
 console.log(`stories.json: ${stories.length} entries`);
 
+// ── Aggregate config/taxonomy → public/data/taxonomy.json ───────────────────
+const taxonomy = aggregateJsonFiles(path.join(CONFIG_DIR, 'taxonomy'));
+fs.writeFileSync(path.join(OUT_DIR, 'taxonomy.json'), JSON.stringify(taxonomy, null, 2));
+console.log(`taxonomy.json: ${taxonomy.length} entries`);
+
 // ── Process each data_source referenced in keywords → public/data/<source>.json
-const dataSources = [...new Set(keywords.filter(k => k.data_source).map(k => k.data_source))];
+const dataSources = [...new Set([
+  ...keywords.filter(k => k.data_source).map(k => k.data_source),
+  ...stories.flatMap(story => (story.contract?.sources || [])),
+  ...stories.flatMap(story => (story.resolution_steps || []).map(step => step.from_source).filter(Boolean))
+])];
 console.log('mock-db:');
 for (const source of dataSources) {
   const outFile = path.join(OUT_DIR, source + '.json');
@@ -81,5 +97,53 @@ for (const source of dataSources) {
     console.warn(`  WARNING: data source '${source}' not found in mock-db (tried directory and .json file)`);
   }
 }
+
+const sourceCatalog = dataSources.map(source => ({
+  source,
+  source_kind: inferSourceKind(source),
+  file: `data/${source}.json`,
+  rowCount: (() => {
+    const dirPath = path.join(MOCK_DB_DIR, source);
+    const filePath = path.join(MOCK_DB_DIR, source + '.json');
+    if (fs.existsSync(dirPath) && fs.statSync(dirPath).isDirectory()) {
+      return aggregateJsonFiles(dirPath).length;
+    }
+    if (fs.existsSync(filePath)) {
+      const data = readJson(filePath);
+      return Array.isArray(data) ? data.length : 1;
+    }
+    return 0;
+  })()
+}));
+
+const storyContracts = stories.map(story => ({
+  story_id: story.story_id,
+  description: story.description,
+  keywords: story.keywords || [],
+  source_kind: story.contract?.source_kind || (story.contract?.sources?.length > 1 ? 'cross-source' : 'cosmos'),
+  sources: story.contract?.sources || [...new Set((story.resolution_steps || []).map(step => step.from_source).filter(Boolean))],
+  patterns: story.contract?.patterns || story.keywords || [],
+  query_examples: story.contract?.query_examples || [],
+  notes: story.contract?.notes || ''
+}));
+
+const contextMap = {
+  module: {
+    show_debug: true,
+    connections: {
+      mockCosmos: { basePath: 'mock-db' },
+      mockStorage: { basePath: 'public/data' }
+    }
+  },
+  keywords,
+  stories,
+  taxonomy,
+  dataSources,
+  sourceCatalog,
+  storyContracts
+};
+
+fs.writeFileSync(path.join(OUT_DIR, 'context-map.json'), JSON.stringify(contextMap, null, 2));
+console.log(`context-map.json: ${storyContracts.length} contracts, ${sourceCatalog.length} sources`);
 
 console.log('Data generation complete.');
