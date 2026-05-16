@@ -1,0 +1,50 @@
+[
+  {
+    "id": "kids_004",
+    "question": "Why do some animals change color?",
+    "answer": "Some animals change color to hide from predators, stay warm, or communicate.",
+    "topic": "animals",
+    "tags": [
+      "kids",
+      "animals",
+      "nature",
+      "color"
+    ]
+  },
+  {
+    "id": "kids_003",
+    "question": "Why is the moon bright?",
+    "answer": "The moon appears bright because it reflects sunlight back to Earth.",
+    "topic": "space",
+    "tags": [
+      "kids",
+      "moon",
+      "light",
+      "space"
+    ]
+  },
+  {
+    "id": "kids_002",
+    "question": "How do rainbows form?",
+    "answer": "Rainbows form when sunlight is bent and reflected inside water droplets, separating light into colors.",
+    "topic": "weather",
+    "tags": [
+      "kids",
+      "rainbow",
+      "weather",
+      "light"
+    ]
+  },
+  {
+    "id": "kids_001",
+    "question": "Why do stars twinkle?",
+    "answer": "Stars twinkle because their light passes through moving layers of air in Earth's atmosphere.",
+    "topic": "space",
+    "tags": [
+      "kids",
+      "stars",
+      "space",
+      "night"
+    ]
+  }
+]

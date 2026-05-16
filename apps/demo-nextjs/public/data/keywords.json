@@ -160,6 +160,166 @@
     "data_source": "learnings/habits"
   },
   {
+    "keyword": "employee",
+    "aliases": [
+      "employees",
+      "staff",
+      "people",
+      "worker"
+    ],
+    "category": "domain",
+    "data_source": "hr/employees",
+    "source_kind": "cosmos",
+    "schema": {
+      "employee_id": "string",
+      "name": "string",
+      "zone": "string",
+      "level": "string",
+      "salary": "number",
+      "department": "string",
+      "role": "string"
+    }
+  },
+  {
+    "keyword": "zone",
+    "aliases": [
+      "region",
+      "area",
+      "location",
+      "territory"
+    ],
+    "category": "attribute",
+    "data_source": "hr/employees",
+    "source_kind": "cosmos",
+    "schema": {
+      "employee_id": "string",
+      "name": "string",
+      "zone": "string",
+      "level": "string",
+      "salary": "number",
+      "department": "string",
+      "role": "string"
+    }
+  },
+  {
+    "keyword": "level",
+    "aliases": [
+      "grade",
+      "band",
+      "tier",
+      "seniority"
+    ],
+    "category": "attribute",
+    "data_source": "hr/employees",
+    "source_kind": "cosmos",
+    "schema": {
+      "employee_id": "string",
+      "name": "string",
+      "zone": "string",
+      "level": "string",
+      "salary": "number",
+      "department": "string",
+      "role": "string"
+    }
+  },
+  {
+    "keyword": "salary",
+    "aliases": [
+      "pay",
+      "compensation",
+      "income",
+      "base pay"
+    ],
+    "category": "metric",
+    "data_source": "hr/employees",
+    "source_kind": "cosmos",
+    "schema": {
+      "employee_id": "string",
+      "name": "string",
+      "zone": "string",
+      "level": "string",
+      "salary": "number",
+      "department": "string",
+      "role": "string"
+    }
+  },
+  {
+    "keyword": "kids",
+    "aliases": [
+      "children",
+      "kid",
+      "kid questions",
+      "kids questions"
+    ],
+    "category": "domain",
+    "data_source": "knowledge/kids",
+    "source_kind": "cosmos",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "stars",
+    "aliases": [
+      "star",
+      "twinkle",
+      "night sky",
+      "space"
+    ],
+    "category": "topic",
+    "data_source": "knowledge/kids",
+    "source_kind": "cosmos",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "rainbow",
+    "aliases": [
+      "rainbows",
+      "color arc",
+      "after rain",
+      "prism"
+    ],
+    "category": "topic",
+    "data_source": "knowledge/kids",
+    "source_kind": "cosmos",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "moon",
+    "aliases": [
+      "lunar",
+      "moonlight",
+      "moon phases",
+      "crescent"
+    ],
+    "category": "topic",
+    "data_source": "knowledge/kids",
+    "source_kind": "cosmos",
+    "schema": {
+      "id": "string",
+      "question": "string",
+      "answer": "string",
+      "topic": "string",
+      "tags": "string[]"
+    }
+  },
+  {
     "keyword": "log",
     "aliases": [
       "logs",
@@ -302,6 +462,90 @@
       "answer": "string",
       "topic": "string",
       "tags": "string[]"
+    }
+  },
+  {
+    "keyword": "inventory",
+    "aliases": [
+      "stock",
+      "catalog",
+      "products",
+      "shop inventory"
+    ],
+    "category": "domain",
+    "data_source": "shop/inventory",
+    "source_kind": "cosmos",
+    "schema": {
+      "sku": "string",
+      "item": "string",
+      "category": "string",
+      "stock": "number",
+      "warehouse": "string",
+      "reorder_level": "number",
+      "price": "number"
+    }
+  },
+  {
+    "keyword": "warehouse",
+    "aliases": [
+      "zone",
+      "storage",
+      "fulfillment",
+      "location"
+    ],
+    "category": "attribute",
+    "data_source": "shop/inventory",
+    "source_kind": "cosmos",
+    "schema": {
+      "sku": "string",
+      "item": "string",
+      "category": "string",
+      "stock": "number",
+      "warehouse": "string",
+      "reorder_level": "number",
+      "price": "number"
+    }
+  },
+  {
+    "keyword": "stock",
+    "aliases": [
+      "low stock",
+      "inventory count",
+      "quantity",
+      "available"
+    ],
+    "category": "metric",
+    "data_source": "shop/inventory",
+    "source_kind": "cosmos",
+    "schema": {
+      "sku": "string",
+      "item": "string",
+      "category": "string",
+      "stock": "number",
+      "warehouse": "string",
+      "reorder_level": "number",
+      "price": "number"
+    }
+  },
+  {
+    "keyword": "reorder",
+    "aliases": [
+      "reorder level",
+      "restock",
+      "refill",
+      "need to order"
+    ],
+    "category": "action",
+    "data_source": "shop/inventory",
+    "source_kind": "cosmos",
+    "schema": {
+      "sku": "string",
+      "item": "string",
+      "category": "string",
+      "stock": "number",
+      "warehouse": "string",
+      "reorder_level": "number",
+      "price": "number"
     }
   }
 ]

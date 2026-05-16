@@ -1,0 +1,10 @@
+{
+  "sku": "SNK-001",
+  "item": "Salted Chips",
+  "category": "snacks",
+  "stock": 12,
+  "warehouse": "west",
+  "reorder_level": 20,
+  "price": 2.5,
+  "tags": ["chips", "snack", "low-stock"]
+}

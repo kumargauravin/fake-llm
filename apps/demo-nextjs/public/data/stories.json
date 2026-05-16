@@ -205,6 +205,78 @@
     ]
   },
   {
+    "story_id": "hr-employee-001",
+    "description": "Query employees by zone, level, salary, or department.",
+    "keywords": [
+      "employee",
+      "zone",
+      "level",
+      "salary"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "employee",
+        "from_source": "hr/employees"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": [
+        "hr/employees"
+      ],
+      "patterns": [
+        "zone lookup",
+        "salary band",
+        "level filter"
+      ],
+      "query_examples": [
+        "show employees with zone is north and level is L3",
+        "find salary above 90000 in engineering",
+        "which employees are in zone east"
+      ],
+      "notes": "This is the classic HR-style Cosmos demo with zone and salary filters."
+    }
+  },
+  {
+    "story_id": "kids-questions-001",
+    "description": "Answer kid-friendly questions with simple science language.",
+    "keywords": [
+      "kids",
+      "stars",
+      "rainbow",
+      "moon"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "kids",
+        "from_source": "knowledge/kids"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": [
+        "knowledge/kids"
+      ],
+      "patterns": [
+        "why questions",
+        "simple answer",
+        "kid-friendly explanation"
+      ],
+      "query_examples": [
+        "why do stars twinkle?",
+        "how do rainbows form?",
+        "why is the moon bright?"
+      ],
+      "notes": "This keeps the kids demo on simple natural-language questions."
+    }
+  },
+  {
     "story_id": "observability-logs-001",
     "description": "Search OpenObserve-style logs for errors and traces.",
     "keywords": [
@@ -318,5 +390,41 @@
         "from_source": "knowledge/science"
       }
     ]
+  },
+  {
+    "story_id": "shop-inventory-001",
+    "description": "Find shop inventory by warehouse, stock, or reorder signals.",
+    "keywords": [
+      "inventory",
+      "stock",
+      "warehouse",
+      "reorder"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "inventory",
+        "from_source": "shop/inventory"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": [
+        "shop/inventory"
+      ],
+      "patterns": [
+        "low stock",
+        "warehouse filter",
+        "reorder lookup"
+      ],
+      "query_examples": [
+        "show low stock snacks in warehouse west",
+        "find sku A-102",
+        "which items need reorder"
+      ],
+      "notes": "This models a classic shop inventory collection."
+    }
   }
 ]

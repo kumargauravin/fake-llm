@@ -95,6 +95,18 @@ type ContextMap = {
     };
   }>;
   dataSources: string[];
+  taxonomy: Array<{
+    id: string;
+    title: string;
+    tagline: string;
+    source_kind: string;
+    source: string;
+    keep: string[];
+    how: string[];
+    need: string[];
+    examples: string[];
+    tags: string[];
+  }>;
   sourceCatalog: Array<{
     source: string;
     source_kind: string;
@@ -113,11 +125,13 @@ type ContextMap = {
   }>;
 };
 
+type BrowserMockLLMInstance = InstanceType<typeof BrowserMockLLM>;
+
 const HISTORY_KEY = 'fake-llm.history';
 const THEME_KEY = 'fake-llm.theme';
 const DRAWER_WIDTH = 260;
 const INSPECTOR_WIDTH = 460;
-const SUGGESTED_PROMPTS = [
+const DEFAULT_PROMPTS = [
   'why is the sky blue?',
   'show release notes in blob content',
   'show error logs for checkout service',
@@ -207,6 +221,7 @@ function Inspector({
   snapshotSource,
   snapshotRows,
   snapshotLoading,
+  activeTaxonomyId,
   onSnapshotSourceChange
 }: {
   answer: LLMAnswer | null;
@@ -215,6 +230,7 @@ function Inspector({
   snapshotSource: string;
   snapshotRows: any[];
   snapshotLoading: boolean;
+  activeTaxonomyId: string;
   onSnapshotSourceChange: (source: string) => void;
 }) {
   const [tab, setTab] = useState(0);
@@ -246,6 +262,7 @@ function Inspector({
       <Tabs value={tab} onChange={(_, v) => setTab(v)} variant="fullWidth" sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tab label="💬 Chat & Debug" />
         <Tab label="🧭 Context Map" />
+        <Tab label="🏷️ Taxonomy" />
         <Tab label="🧩 Contracts" />
       </Tabs>
 
@@ -305,6 +322,16 @@ function Inspector({
                 <Paper key={step.step} variant="outlined" sx={{ p: 1, mt: 1 }}>
                   <Typography variant="caption" sx={{ fontWeight: 700 }}>Step {step.step}: {step.action}</Typography>
                   {step.source && <Typography variant="caption" sx={{ display: 'block' }}>Source: {step.source}</Typography>}
+                  {step.generatedQuery && (
+                    <Typography variant="caption" sx={{ display: 'block', fontFamily: 'monospace', wordBreak: 'break-all' }}>
+                      Query: {step.generatedQuery}
+                    </Typography>
+                  )}
+                  {step.searchPattern && (
+                    <Typography variant="caption" sx={{ display: 'block', fontFamily: 'monospace', wordBreak: 'break-all' }}>
+                      Pattern: {step.searchPattern}
+                    </Typography>
+                  )}
                   {step.builtFilter && (
                     <Typography variant="caption" sx={{ display: 'block', fontFamily: 'monospace', wordBreak: 'break-all' }}>
                       Filter: {step.builtFilter}
@@ -453,6 +480,64 @@ function Inspector({
 
       <TabPanel value={tab} index={2}>
         {!contextData ? (
+          <Typography color="text.secondary" variant="body2">Loading taxonomy…</Typography>
+        ) : (
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+            {contextData.taxonomy.map(item => (
+              <Paper
+                key={item.id}
+                variant="outlined"
+                sx={{
+                  p: 1.5,
+                  borderColor: item.id === activeTaxonomyId ? 'primary.main' : 'divider',
+                  bgcolor: item.id === activeTaxonomyId ? 'action.selected' : 'background.paper'
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1 }}>
+                  <Box>
+                    <Typography variant="caption" sx={{ fontWeight: 700, display: 'block' }}>{item.title}</Typography>
+                    <Typography variant="caption" color="text.secondary">{item.tagline}</Typography>
+                  </Box>
+                  <Chip size="small" label={item.source_kind} />
+                </Box>
+                <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mt: 1 }}>
+                  {item.tags.map(tag => <Chip key={tag} size="small" variant="outlined" label={tag} />)}
+                </Box>
+                <Box sx={{ mt: 1 }}>
+                  <Typography variant="caption" sx={{ fontWeight: 700, display: 'block' }}>What we keep</Typography>
+                  <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mt: 0.5 }}>
+                    {item.keep.map(field => <Chip key={field} size="small" label={field} color="success" variant="outlined" />)}
+                  </Box>
+                </Box>
+                <Box sx={{ mt: 1 }}>
+                  <Typography variant="caption" sx={{ fontWeight: 700, display: 'block' }}>How we keep it</Typography>
+                  <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mt: 0.5 }}>
+                    {item.how.map(rule => <Chip key={rule} size="small" label={rule} />)}
+                  </Box>
+                </Box>
+                <Box sx={{ mt: 1 }}>
+                  <Typography variant="caption" sx={{ fontWeight: 700, display: 'block' }}>What you need to give</Typography>
+                  <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mt: 0.5 }}>
+                    {item.need.map(prompt => <Chip key={prompt} size="small" label={prompt} color="warning" variant="outlined" />)}
+                  </Box>
+                </Box>
+                <Box sx={{ mt: 1 }}>
+                  <Typography variant="caption" sx={{ fontWeight: 700, display: 'block' }}>Example prompts</Typography>
+                  <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap', mt: 0.5 }}>
+                    {item.examples.map(example => <Chip key={example} size="small" label={example} variant="outlined" />)}
+                  </Box>
+                </Box>
+                <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
+                  source: {item.source}
+                </Typography>
+              </Paper>
+            ))}
+          </Box>
+        )}
+      </TabPanel>
+
+      <TabPanel value={tab} index={3}>
+        {!contextData ? (
           <Typography color="text.secondary" variant="body2">Loading contracts…</Typography>
         ) : (
           <Box>
@@ -491,13 +576,14 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [inspectedAnswer, setInspectedAnswer] = useState<LLMAnswer | null>(null);
   const [contextData, setContextData] = useState<ContextMap | null>(null);
+  const [activeTaxonomyId, setActiveTaxonomyId] = useState('');
   const [snapshotSource, setSnapshotSource] = useState('');
   const [snapshotRows, setSnapshotRows] = useState<any[]>([]);
   const [snapshotLoading, setSnapshotLoading] = useState(false);
   const [llmReady, setLlmReady] = useState(false);
   const [snackbar, setSnackbar] = useState<{ open: boolean; msg: string }>({ open: false, msg: '' });
   const bottomRef = useRef<HTMLDivElement>(null);
-  const llmRef = useRef<BrowserMockLLM | null>(null);
+  const llmRef = useRef<BrowserMockLLMInstance | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem(THEME_KEY);
@@ -564,6 +650,7 @@ export default function Home() {
 
         llmRef.current = llm;
         setContextData(contextJson);
+        setActiveTaxonomyId(prev => prev || contextJson.taxonomy?.[0]?.id || '');
         setLlmReady(true);
         const initialSource = contextJson.dataSources[0] || '';
         setSnapshotSource(initialSource);
@@ -583,6 +670,13 @@ export default function Home() {
       cancelled = true;
     };
   }, [router.isReady, router.basePath]);
+
+  useEffect(() => {
+    if (!contextData?.taxonomy?.length) return;
+    if (!activeTaxonomyId || !contextData.taxonomy.some(item => item.id === activeTaxonomyId)) {
+      setActiveTaxonomyId(contextData.taxonomy[0].id);
+    }
+  }, [activeTaxonomyId, contextData]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -665,6 +759,8 @@ export default function Home() {
   }), [darkMode]);
 
   const sessionFirstMsg = (session: ChatSession) => session.messages.find(m => m.role === 'user')?.content || 'New chat';
+  const activeTaxonomy = contextData?.taxonomy.find(item => item.id === activeTaxonomyId) || contextData?.taxonomy[0];
+  const quickPrompts = activeTaxonomy?.examples?.length ? activeTaxonomy.examples : DEFAULT_PROMPTS;
 
   return (
     <ThemeProvider theme={theme}>
@@ -731,6 +827,19 @@ export default function Home() {
                 </IconButton>
               </Tooltip>
             </Toolbar>
+            <Box sx={{ px: 2, pb: 1.25, display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
+              {contextData?.taxonomy?.map(item => (
+                <Chip
+                  key={item.id}
+                  label={item.title}
+                  size="small"
+                  clickable
+                  color={item.id === activeTaxonomy?.id ? 'primary' : 'default'}
+                  variant={item.id === activeTaxonomy?.id ? 'filled' : 'outlined'}
+                  onClick={() => setActiveTaxonomyId(item.id)}
+                />
+              ))}
+            </Box>
           </AppBar>
 
           <Box sx={{ flex: 1, overflowY: 'auto', py: 2, display: 'flex', flexDirection: 'column' }}>
@@ -742,8 +851,11 @@ export default function Home() {
                 <Typography color="text.secondary" variant="body2" sx={{ textAlign: 'center', maxWidth: 520 }}>
                   The demo now loads context and query data from static JSON assets, while the browser query engine still runs the story contracts locally.
                 </Typography>
+                <Typography variant="caption" color="text.secondary" sx={{ textAlign: 'center' }}>
+                  Current focus: <strong>{activeTaxonomy?.title || 'all demo domains'}</strong>
+                </Typography>
                 <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', justifyContent: 'center', mt: 1 }}>
-                  {SUGGESTED_PROMPTS.map(prompt => (
+                  {quickPrompts.map(prompt => (
                     <Chip key={prompt} label={prompt} onClick={() => sendMessage(prompt)} clickable variant="outlined" size="small" />
                   ))}
                 </Box>
@@ -775,7 +887,7 @@ export default function Home() {
 
           {activeSession && activeSession.messages.length > 0 && !loading && (
             <Box sx={{ px: 2, pb: 1, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-              {SUGGESTED_PROMPTS.map(prompt => (
+              {quickPrompts.map(prompt => (
                 <Chip key={prompt} label={prompt} onClick={() => sendMessage(prompt)} clickable size="small" variant="outlined" />
               ))}
             </Box>
@@ -812,6 +924,7 @@ export default function Home() {
             snapshotSource={snapshotSource}
             snapshotRows={snapshotRows}
             snapshotLoading={snapshotLoading}
+            activeTaxonomyId={activeTaxonomyId}
             onSnapshotSourceChange={loadSnapshot}
           />
         )}

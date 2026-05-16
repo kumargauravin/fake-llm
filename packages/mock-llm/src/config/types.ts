@@ -111,6 +111,8 @@ export interface AnswerDebugStep {
   source?: string;
   queryParams?: QueryParams;
   builtFilter?: string;
+  generatedQuery?: string;
+  searchPattern?: string;
   rowsReturned: number;
   sampleRows: any[];
 }

@@ -1,0 +1,66 @@
+[
+  {
+    "keyword": "inventory",
+    "aliases": ["stock", "catalog", "products", "shop inventory"],
+    "category": "domain",
+    "data_source": "shop/inventory",
+    "source_kind": "cosmos",
+    "schema": {
+      "sku": "string",
+      "item": "string",
+      "category": "string",
+      "stock": "number",
+      "warehouse": "string",
+      "reorder_level": "number",
+      "price": "number"
+    }
+  },
+  {
+    "keyword": "warehouse",
+    "aliases": ["zone", "storage", "fulfillment", "location"],
+    "category": "attribute",
+    "data_source": "shop/inventory",
+    "source_kind": "cosmos",
+    "schema": {
+      "sku": "string",
+      "item": "string",
+      "category": "string",
+      "stock": "number",
+      "warehouse": "string",
+      "reorder_level": "number",
+      "price": "number"
+    }
+  },
+  {
+    "keyword": "stock",
+    "aliases": ["low stock", "inventory count", "quantity", "available"],
+    "category": "metric",
+    "data_source": "shop/inventory",
+    "source_kind": "cosmos",
+    "schema": {
+      "sku": "string",
+      "item": "string",
+      "category": "string",
+      "stock": "number",
+      "warehouse": "string",
+      "reorder_level": "number",
+      "price": "number"
+    }
+  },
+  {
+    "keyword": "reorder",
+    "aliases": ["reorder level", "restock", "refill", "need to order"],
+    "category": "action",
+    "data_source": "shop/inventory",
+    "source_kind": "cosmos",
+    "schema": {
+      "sku": "string",
+      "item": "string",
+      "category": "string",
+      "stock": "number",
+      "warehouse": "string",
+      "reorder_level": "number",
+      "price": "number"
+    }
+  }
+]

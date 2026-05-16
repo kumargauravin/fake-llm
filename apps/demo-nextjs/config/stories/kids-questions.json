@@ -1,0 +1,27 @@
+[
+  {
+    "story_id": "kids-questions-001",
+    "description": "Answer kid-friendly questions with simple science language.",
+    "keywords": ["kids", "stars", "rainbow", "moon"],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "kids",
+        "from_source": "knowledge/kids"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": ["knowledge/kids"],
+      "patterns": ["why questions", "simple answer", "kid-friendly explanation"],
+      "query_examples": [
+        "why do stars twinkle?",
+        "how do rainbows form?",
+        "why is the moon bright?"
+      ],
+      "notes": "This keeps the kids demo on simple natural-language questions."
+    }
+  }
+]

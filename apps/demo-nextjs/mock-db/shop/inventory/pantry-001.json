@@ -1,0 +1,10 @@
+{
+  "sku": "PAN-101",
+  "item": "Pasta",
+  "category": "pantry",
+  "stock": 8,
+  "warehouse": "west",
+  "reorder_level": 15,
+  "price": 3.25,
+  "tags": ["dry-goods", "reorder"]
+}

@@ -1,0 +1,10 @@
+{
+  "employee_id": "E-004",
+  "name": "Dan",
+  "zone": "west",
+  "level": "L1",
+  "salary": 55000,
+  "department": "support",
+  "role": "support specialist",
+  "tags": ["support", "operations"]
+}

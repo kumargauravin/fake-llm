@@ -53,6 +53,12 @@ describe('MockLLM Integration', () => {
     expect(answer.debug?.threshold).toBe(0.1);
   });
 
+  it('should surface generated query and search pattern in debug steps', async () => {
+    const answer = await llm.query('show employees with zone is north and level is L3', { debug: true });
+    expect(answer.debug?.steps?.[0]?.generatedQuery).toContain('SELECT * FROM c');
+    expect(answer.debug?.steps?.[0]?.searchPattern).toContain('MATCH');
+  });
+
   it('should not include debug block when debug=false', async () => {
     const answer = await llm.query('list all habits', { debug: false });
     expect(answer.debug).toBeUndefined();

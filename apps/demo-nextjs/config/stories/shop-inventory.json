@@ -1,0 +1,27 @@
+[
+  {
+    "story_id": "shop-inventory-001",
+    "description": "Find shop inventory by warehouse, stock, or reorder signals.",
+    "keywords": ["inventory", "stock", "warehouse", "reorder"],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "inventory",
+        "from_source": "shop/inventory"
+      }
+    ],
+    "contract": {
+      "source_kind": "cosmos",
+      "sources": ["shop/inventory"],
+      "patterns": ["low stock", "warehouse filter", "reorder lookup"],
+      "query_examples": [
+        "show low stock snacks in warehouse west",
+        "find sku A-102",
+        "which items need reorder"
+      ],
+      "notes": "This models a classic shop inventory collection."
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "employee_id": "E-001",
+  "name": "Alice",
+  "zone": "north",
+  "level": "L3",
+  "salary": 96000,
+  "department": "engineering",
+  "role": "backend engineer",
+  "tags": ["engineering", "core"]
+}

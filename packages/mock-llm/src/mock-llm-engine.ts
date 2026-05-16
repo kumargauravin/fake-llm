@@ -147,6 +147,7 @@ export class MockLLMEngine {
       if (step.action === 'fetch') {
         const queryParams = this.queryBuilder.buildQuery(step, intent);
         const builtFilter = this.queryBuilder.buildSQLWhere(queryParams.filters || {});
+        const preview = this.queryBuilder.buildQueryPreview(step, intent, resolvedKeywords.map(kw => kw.keyword));
         const data = await this.adapter.query(queryParams);
         if (includeDebug) {
           debugSteps.push({
@@ -155,6 +156,8 @@ export class MockLLMEngine {
             source: queryParams.source,
             queryParams,
             builtFilter: builtFilter || `GET ${queryParams.source}/*`,
+            generatedQuery: preview.generatedQuery,
+            searchPattern: preview.searchPattern,
             rowsReturned: data.length,
             sampleRows: data.slice(0, 3)
           });

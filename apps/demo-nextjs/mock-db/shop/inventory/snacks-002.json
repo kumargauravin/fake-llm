@@ -1,0 +1,10 @@
+{
+  "sku": "SNK-002",
+  "item": "Chocolate Bar",
+  "category": "snacks",
+  "stock": 48,
+  "warehouse": "east",
+  "reorder_level": 30,
+  "price": 1.75,
+  "tags": ["chocolate", "sweet", "candy"]
+}

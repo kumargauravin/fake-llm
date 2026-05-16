@@ -1,0 +1,10 @@
+{
+  "employee_id": "E-002",
+  "name": "Bob",
+  "zone": "east",
+  "level": "L2",
+  "salary": 72000,
+  "department": "sales",
+  "role": "account executive",
+  "tags": ["sales", "customer"]
+}

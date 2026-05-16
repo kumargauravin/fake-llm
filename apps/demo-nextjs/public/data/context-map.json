@@ -172,6 +172,166 @@
       "data_source": "learnings/habits"
     },
     {
+      "keyword": "employee",
+      "aliases": [
+        "employees",
+        "staff",
+        "people",
+        "worker"
+      ],
+      "category": "domain",
+      "data_source": "hr/employees",
+      "source_kind": "cosmos",
+      "schema": {
+        "employee_id": "string",
+        "name": "string",
+        "zone": "string",
+        "level": "string",
+        "salary": "number",
+        "department": "string",
+        "role": "string"
+      }
+    },
+    {
+      "keyword": "zone",
+      "aliases": [
+        "region",
+        "area",
+        "location",
+        "territory"
+      ],
+      "category": "attribute",
+      "data_source": "hr/employees",
+      "source_kind": "cosmos",
+      "schema": {
+        "employee_id": "string",
+        "name": "string",
+        "zone": "string",
+        "level": "string",
+        "salary": "number",
+        "department": "string",
+        "role": "string"
+      }
+    },
+    {
+      "keyword": "level",
+      "aliases": [
+        "grade",
+        "band",
+        "tier",
+        "seniority"
+      ],
+      "category": "attribute",
+      "data_source": "hr/employees",
+      "source_kind": "cosmos",
+      "schema": {
+        "employee_id": "string",
+        "name": "string",
+        "zone": "string",
+        "level": "string",
+        "salary": "number",
+        "department": "string",
+        "role": "string"
+      }
+    },
+    {
+      "keyword": "salary",
+      "aliases": [
+        "pay",
+        "compensation",
+        "income",
+        "base pay"
+      ],
+      "category": "metric",
+      "data_source": "hr/employees",
+      "source_kind": "cosmos",
+      "schema": {
+        "employee_id": "string",
+        "name": "string",
+        "zone": "string",
+        "level": "string",
+        "salary": "number",
+        "department": "string",
+        "role": "string"
+      }
+    },
+    {
+      "keyword": "kids",
+      "aliases": [
+        "children",
+        "kid",
+        "kid questions",
+        "kids questions"
+      ],
+      "category": "domain",
+      "data_source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "stars",
+      "aliases": [
+        "star",
+        "twinkle",
+        "night sky",
+        "space"
+      ],
+      "category": "topic",
+      "data_source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "rainbow",
+      "aliases": [
+        "rainbows",
+        "color arc",
+        "after rain",
+        "prism"
+      ],
+      "category": "topic",
+      "data_source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "moon",
+      "aliases": [
+        "lunar",
+        "moonlight",
+        "moon phases",
+        "crescent"
+      ],
+      "category": "topic",
+      "data_source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "schema": {
+        "id": "string",
+        "question": "string",
+        "answer": "string",
+        "topic": "string",
+        "tags": "string[]"
+      }
+    },
+    {
       "keyword": "log",
       "aliases": [
         "logs",
@@ -314,6 +474,90 @@
         "answer": "string",
         "topic": "string",
         "tags": "string[]"
+      }
+    },
+    {
+      "keyword": "inventory",
+      "aliases": [
+        "stock",
+        "catalog",
+        "products",
+        "shop inventory"
+      ],
+      "category": "domain",
+      "data_source": "shop/inventory",
+      "source_kind": "cosmos",
+      "schema": {
+        "sku": "string",
+        "item": "string",
+        "category": "string",
+        "stock": "number",
+        "warehouse": "string",
+        "reorder_level": "number",
+        "price": "number"
+      }
+    },
+    {
+      "keyword": "warehouse",
+      "aliases": [
+        "zone",
+        "storage",
+        "fulfillment",
+        "location"
+      ],
+      "category": "attribute",
+      "data_source": "shop/inventory",
+      "source_kind": "cosmos",
+      "schema": {
+        "sku": "string",
+        "item": "string",
+        "category": "string",
+        "stock": "number",
+        "warehouse": "string",
+        "reorder_level": "number",
+        "price": "number"
+      }
+    },
+    {
+      "keyword": "stock",
+      "aliases": [
+        "low stock",
+        "inventory count",
+        "quantity",
+        "available"
+      ],
+      "category": "metric",
+      "data_source": "shop/inventory",
+      "source_kind": "cosmos",
+      "schema": {
+        "sku": "string",
+        "item": "string",
+        "category": "string",
+        "stock": "number",
+        "warehouse": "string",
+        "reorder_level": "number",
+        "price": "number"
+      }
+    },
+    {
+      "keyword": "reorder",
+      "aliases": [
+        "reorder level",
+        "restock",
+        "refill",
+        "need to order"
+      ],
+      "category": "action",
+      "data_source": "shop/inventory",
+      "source_kind": "cosmos",
+      "schema": {
+        "sku": "string",
+        "item": "string",
+        "category": "string",
+        "stock": "number",
+        "warehouse": "string",
+        "reorder_level": "number",
+        "price": "number"
       }
     }
   ],
@@ -524,6 +768,78 @@
       ]
     },
     {
+      "story_id": "hr-employee-001",
+      "description": "Query employees by zone, level, salary, or department.",
+      "keywords": [
+        "employee",
+        "zone",
+        "level",
+        "salary"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "employee",
+          "from_source": "hr/employees"
+        }
+      ],
+      "contract": {
+        "source_kind": "cosmos",
+        "sources": [
+          "hr/employees"
+        ],
+        "patterns": [
+          "zone lookup",
+          "salary band",
+          "level filter"
+        ],
+        "query_examples": [
+          "show employees with zone is north and level is L3",
+          "find salary above 90000 in engineering",
+          "which employees are in zone east"
+        ],
+        "notes": "This is the classic HR-style Cosmos demo with zone and salary filters."
+      }
+    },
+    {
+      "story_id": "kids-questions-001",
+      "description": "Answer kid-friendly questions with simple science language.",
+      "keywords": [
+        "kids",
+        "stars",
+        "rainbow",
+        "moon"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "kids",
+          "from_source": "knowledge/kids"
+        }
+      ],
+      "contract": {
+        "source_kind": "cosmos",
+        "sources": [
+          "knowledge/kids"
+        ],
+        "patterns": [
+          "why questions",
+          "simple answer",
+          "kid-friendly explanation"
+        ],
+        "query_examples": [
+          "why do stars twinkle?",
+          "how do rainbows form?",
+          "why is the moon bright?"
+        ],
+        "notes": "This keeps the kids demo on simple natural-language questions."
+      }
+    },
+    {
       "story_id": "observability-logs-001",
       "description": "Search OpenObserve-style logs for errors and traces.",
       "keywords": [
@@ -637,13 +953,269 @@
           "from_source": "knowledge/science"
         }
       ]
+    },
+    {
+      "story_id": "shop-inventory-001",
+      "description": "Find shop inventory by warehouse, stock, or reorder signals.",
+      "keywords": [
+        "inventory",
+        "stock",
+        "warehouse",
+        "reorder"
+      ],
+      "relations": [],
+      "resolution_steps": [
+        {
+          "step": 1,
+          "action": "fetch",
+          "keyword": "inventory",
+          "from_source": "shop/inventory"
+        }
+      ],
+      "contract": {
+        "source_kind": "cosmos",
+        "sources": [
+          "shop/inventory"
+        ],
+        "patterns": [
+          "low stock",
+          "warehouse filter",
+          "reorder lookup"
+        ],
+        "query_examples": [
+          "show low stock snacks in warehouse west",
+          "find sku A-102",
+          "which items need reorder"
+        ],
+        "notes": "This models a classic shop inventory collection."
+      }
+    }
+  ],
+  "taxonomy": [
+    {
+      "id": "kids-questions",
+      "title": "Kids questions",
+      "tagline": "Simple why/how questions with kid-friendly answers.",
+      "source_kind": "cosmos",
+      "source": "knowledge/kids",
+      "keep": [
+        "question",
+        "answer",
+        "topic",
+        "tags"
+      ],
+      "how": [
+        "Cosmos-style JSON docs",
+        "build-time static snapshot",
+        "query by topic and tags"
+      ],
+      "need": [
+        "Ask a natural question",
+        "mention the topic if you know it",
+        "keep it short and simple"
+      ],
+      "examples": [
+        "why do stars twinkle?",
+        "how do rainbows form?",
+        "why is the moon bright?"
+      ],
+      "tags": [
+        "kids",
+        "questions",
+        "science",
+        "simple"
+      ]
+    },
+    {
+      "id": "shop-inventory",
+      "title": "Shop inventory",
+      "tagline": "Stock, warehouse, and reorder lookups for a store.",
+      "source_kind": "cosmos",
+      "source": "shop/inventory",
+      "keep": [
+        "sku",
+        "item",
+        "category",
+        "stock",
+        "warehouse",
+        "reorder_level",
+        "price"
+      ],
+      "how": [
+        "Treat each product row like a Cosmos document",
+        "filter by stock, warehouse, category, or SKU",
+        "serve the snapshot from static JSON"
+      ],
+      "need": [
+        "Give a product or category",
+        "say the warehouse or stock threshold",
+        "add filters like price or reorder level"
+      ],
+      "examples": [
+        "show low stock snacks in warehouse west",
+        "find sku A-102",
+        "which items need reorder"
+      ],
+      "tags": [
+        "inventory",
+        "store",
+        "stock",
+        "warehouse"
+      ]
+    },
+    {
+      "id": "employee-zone-salary",
+      "title": "Employee zone / level / salary",
+      "tagline": "Classic HR lookup with zone, level, and salary filters.",
+      "source_kind": "cosmos",
+      "source": "hr/employees",
+      "keep": [
+        "employee_id",
+        "name",
+        "zone",
+        "level",
+        "salary",
+        "department",
+        "role"
+      ],
+      "how": [
+        "Model employees as Cosmos documents",
+        "query by zone, level, salary bands, or department",
+        "keep the source static for repeatable demos"
+      ],
+      "need": [
+        "Give the zone or level you want",
+        "add a salary threshold if needed",
+        "mention department or role for tighter matching"
+      ],
+      "examples": [
+        "show employees with zone is north and level is L3",
+        "find salary above 90000 in engineering",
+        "which employees are in zone east"
+      ],
+      "tags": [
+        "employee",
+        "zone",
+        "level",
+        "salary",
+        "hr"
+      ]
+    },
+    {
+      "id": "science-facts",
+      "title": "Science facts",
+      "tagline": "Kid-friendly science explanations using the knowledge corpus.",
+      "source_kind": "cosmos",
+      "source": "knowledge/science",
+      "keep": [
+        "id",
+        "question",
+        "answer",
+        "topic",
+        "tags"
+      ],
+      "how": [
+        "Static Cosmos-style JSON records",
+        "fetch answers by topic or keyword",
+        "reuse the same browser query engine"
+      ],
+      "need": [
+        "Ask a science question",
+        "mention sky, weather, or gravity when possible",
+        "use natural wording"
+      ],
+      "examples": [
+        "why is the sky blue?",
+        "why does rain happen?",
+        "what is gravity?"
+      ],
+      "tags": [
+        "science",
+        "kids",
+        "weather",
+        "gravity"
+      ]
+    },
+    {
+      "id": "blob-docs",
+      "title": "Blob / static docs",
+      "tagline": "Release notes and runbooks served as static content.",
+      "source_kind": "blob",
+      "source": "content/docs",
+      "keep": [
+        "id",
+        "title",
+        "body",
+        "tags",
+        "kind"
+      ],
+      "how": [
+        "Store documents as blob-like JSON assets",
+        "index by tags and document kind",
+        "serve from the generated /data snapshot"
+      ],
+      "need": [
+        "Give a document kind or title hint",
+        "mention release, runbook, or architecture",
+        "ask for the blob content directly"
+      ],
+      "examples": [
+        "show release notes",
+        "find the runbook for demo query failures",
+        "show architecture guide docs"
+      ],
+      "tags": [
+        "blob",
+        "docs",
+        "release",
+        "runbook"
+      ]
+    },
+    {
+      "id": "observability-logs",
+      "title": "Observability logs",
+      "tagline": "Log-like records with trace and service filters.",
+      "source_kind": "logs",
+      "source": "observability/openobserve",
+      "keep": [
+        "id",
+        "timestamp",
+        "level",
+        "service",
+        "message",
+        "trace_id"
+      ],
+      "how": [
+        "Keep records in a log-style collection",
+        "search by message, trace_id, service, or level",
+        "present the query and the pattern in debug mode"
+      ],
+      "need": [
+        "Give a service or trace id",
+        "mention the level or incident you care about",
+        "include a message hint for filtering"
+      ],
+      "examples": [
+        "show error logs for checkout",
+        "find trace id trace-4492",
+        "search payment warnings"
+      ],
+      "tags": [
+        "logs",
+        "trace",
+        "service",
+        "errors"
+      ]
     }
   ],
   "dataSources": [
     "content/docs",
     "learnings/habits",
+    "hr/employees",
+    "knowledge/kids",
     "observability/openobserve",
-    "knowledge/science"
+    "knowledge/science",
+    "shop/inventory"
   ],
   "sourceCatalog": [
     {
@@ -659,6 +1231,18 @@
       "rowCount": 8
     },
     {
+      "source": "hr/employees",
+      "source_kind": "cosmos",
+      "file": "data/hr/employees.json",
+      "rowCount": 4
+    },
+    {
+      "source": "knowledge/kids",
+      "source_kind": "cosmos",
+      "file": "data/knowledge/kids.json",
+      "rowCount": 4
+    },
+    {
       "source": "observability/openobserve",
       "source_kind": "logs",
       "file": "data/observability/openobserve.json",
@@ -669,6 +1253,12 @@
       "source_kind": "cosmos",
       "file": "data/knowledge/science.json",
       "rowCount": 8
+    },
+    {
+      "source": "shop/inventory",
+      "source_kind": "cosmos",
+      "file": "data/shop/inventory.json",
+      "rowCount": 4
     }
   ],
   "storyContracts": [
@@ -830,6 +1420,56 @@
       "notes": ""
     },
     {
+      "story_id": "hr-employee-001",
+      "description": "Query employees by zone, level, salary, or department.",
+      "keywords": [
+        "employee",
+        "zone",
+        "level",
+        "salary"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "hr/employees"
+      ],
+      "patterns": [
+        "zone lookup",
+        "salary band",
+        "level filter"
+      ],
+      "query_examples": [
+        "show employees with zone is north and level is L3",
+        "find salary above 90000 in engineering",
+        "which employees are in zone east"
+      ],
+      "notes": "This is the classic HR-style Cosmos demo with zone and salary filters."
+    },
+    {
+      "story_id": "kids-questions-001",
+      "description": "Answer kid-friendly questions with simple science language.",
+      "keywords": [
+        "kids",
+        "stars",
+        "rainbow",
+        "moon"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "knowledge/kids"
+      ],
+      "patterns": [
+        "why questions",
+        "simple answer",
+        "kid-friendly explanation"
+      ],
+      "query_examples": [
+        "why do stars twinkle?",
+        "how do rainbows form?",
+        "why is the moon bright?"
+      ],
+      "notes": "This keeps the kids demo on simple natural-language questions."
+    },
+    {
       "story_id": "observability-logs-001",
       "description": "Search OpenObserve-style logs for errors and traces.",
       "keywords": [
@@ -921,6 +1561,31 @@
       ],
       "query_examples": [],
       "notes": ""
+    },
+    {
+      "story_id": "shop-inventory-001",
+      "description": "Find shop inventory by warehouse, stock, or reorder signals.",
+      "keywords": [
+        "inventory",
+        "stock",
+        "warehouse",
+        "reorder"
+      ],
+      "source_kind": "cosmos",
+      "sources": [
+        "shop/inventory"
+      ],
+      "patterns": [
+        "low stock",
+        "warehouse filter",
+        "reorder lookup"
+      ],
+      "query_examples": [
+        "show low stock snacks in warehouse west",
+        "find sku A-102",
+        "which items need reorder"
+      ],
+      "notes": "This models a classic shop inventory collection."
     }
   ]
 }

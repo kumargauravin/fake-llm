@@ -63,6 +63,11 @@ const stories = aggregateJsonFiles(path.join(CONFIG_DIR, 'stories'));
 fs.writeFileSync(path.join(OUT_DIR, 'stories.json'), JSON.stringify(stories, null, 2));
 console.log(`stories.json: ${stories.length} entries`);
 
+// ── Aggregate config/taxonomy → public/data/taxonomy.json ───────────────────
+const taxonomy = aggregateJsonFiles(path.join(CONFIG_DIR, 'taxonomy'));
+fs.writeFileSync(path.join(OUT_DIR, 'taxonomy.json'), JSON.stringify(taxonomy, null, 2));
+console.log(`taxonomy.json: ${taxonomy.length} entries`);
+
 // ── Process each data_source referenced in keywords → public/data/<source>.json
 const dataSources = [...new Set([
   ...keywords.filter(k => k.data_source).map(k => k.data_source),
@@ -132,6 +137,7 @@ const contextMap = {
   },
   keywords,
   stories,
+  taxonomy,
   dataSources,
   sourceCatalog,
   storyContracts
