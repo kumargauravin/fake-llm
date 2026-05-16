@@ -60,6 +60,11 @@ export class MockLLMEngine {
       if (kw.data_source) sources.add(kw.data_source);
     }
     for (const story of this.stories) {
+      if (story.contract?.sources) {
+        for (const source of story.contract.sources) {
+          if (source) sources.add(source);
+        }
+      }
       for (const step of story.resolution_steps) {
         if (step.from_source) sources.add(step.from_source);
       }

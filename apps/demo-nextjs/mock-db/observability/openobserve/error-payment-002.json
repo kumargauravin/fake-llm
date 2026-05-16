@@ -1,0 +1,9 @@
+{
+  "id": "log_004",
+  "timestamp": "2026-05-15T10:19:05Z",
+  "level": "error",
+  "service": "payment",
+  "message": "Payment service failed to find a matching story contract.",
+  "trace_id": "trace-8841",
+  "release_id": "release-2026-05"
+}

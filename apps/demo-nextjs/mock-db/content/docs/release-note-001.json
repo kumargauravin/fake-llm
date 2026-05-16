@@ -1,0 +1,8 @@
+{
+  "id": "doc_release_001",
+  "title": "Release Note: Static Demo Context",
+  "kind": "release-note",
+  "body": "We now ship static context bundles at build time so the demo can run without server-only API routes.",
+  "tags": ["release", "demo", "static", "context"],
+  "audience": "product"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "log_001",
+  "timestamp": "2026-05-15T10:15:22Z",
+  "level": "error",
+  "service": "checkout",
+  "message": "Checkout API returned 500 while resolving release context.",
+  "trace_id": "trace-4492",
+  "release_id": "release-2026-05"
+}

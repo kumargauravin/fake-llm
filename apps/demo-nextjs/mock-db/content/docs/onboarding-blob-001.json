@@ -1,0 +1,8 @@
+{
+  "id": "doc_onboarding_001",
+  "title": "Onboarding Note: Using Blob Content as a Demo Collection",
+  "kind": "onboarding",
+  "body": "Treat each blob JSON file as a document in a Cosmos-style collection to keep the static demo queryable.",
+  "tags": ["onboarding", "blob", "collection"],
+  "audience": "engineering"
+}

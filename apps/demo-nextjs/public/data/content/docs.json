@@ -1,0 +1,53 @@
+[
+  {
+    "id": "doc_arch_001",
+    "title": "Architecture Guide: Mock Cosmos and Blob Content",
+    "kind": "architecture",
+    "body": "Mock DB sources are queried like Cosmos containers, while blob content is exposed through static JSON assets for browser demos.",
+    "tags": [
+      "architecture",
+      "cosmos",
+      "blob",
+      "browser"
+    ],
+    "audience": "engineering"
+  },
+  {
+    "id": "doc_onboarding_001",
+    "title": "Onboarding Note: Using Blob Content as a Demo Collection",
+    "kind": "onboarding",
+    "body": "Treat each blob JSON file as a document in a Cosmos-style collection to keep the static demo queryable.",
+    "tags": [
+      "onboarding",
+      "blob",
+      "collection"
+    ],
+    "audience": "engineering"
+  },
+  {
+    "id": "doc_release_001",
+    "title": "Release Note: Static Demo Context",
+    "kind": "release-note",
+    "body": "We now ship static context bundles at build time so the demo can run without server-only API routes.",
+    "tags": [
+      "release",
+      "demo",
+      "static",
+      "context"
+    ],
+    "audience": "product"
+  },
+  {
+    "id": "doc_runbook_001",
+    "title": "Runbook: Investigate Demo Query Failures",
+    "kind": "runbook",
+    "body": "Check the context map, verify the generated JSON assets, and inspect the browser query path before falling back to server APIs.",
+    "tags": [
+      "runbook",
+      "incident",
+      "query",
+      "debug"
+    ],
+    "audience": "support"
+  }
+]

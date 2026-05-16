@@ -65,5 +65,6 @@ describe('MockLLM Integration', () => {
     expect(keywords.length).toBeGreaterThan(0);
     expect(stories.length).toBeGreaterThan(0);
     expect(sources.length).toBeGreaterThan(0);
+    expect(sources).toEqual(expect.arrayContaining(['content/docs', 'observability/openobserve']));
   });
 });

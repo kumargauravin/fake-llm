@@ -1,0 +1,50 @@
+[
+  {
+    "story_id": "content-docs-001",
+    "description": "Find release notes and docs stored as blob content.",
+    "keywords": ["blob", "release", "runbook"],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "release",
+        "from_source": "content/docs"
+      }
+    ],
+    "contract": {
+      "source_kind": "blob",
+      "sources": ["content/docs"],
+      "patterns": ["release notes", "architecture note", "runbook"],
+      "query_examples": [
+        "show release notes blob content",
+        "find runbook docs for the latest release"
+      ],
+      "notes": "Demonstrates blob-like document retrieval from static assets."
+    }
+  },
+  {
+    "story_id": "content-docs-002",
+    "description": "Resolve architecture notes and onboarding docs from the same blob set.",
+    "keywords": ["runbook", "blob"],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "runbook",
+        "from_source": "content/docs"
+      }
+    ],
+    "contract": {
+      "source_kind": "blob",
+      "sources": ["content/docs"],
+      "patterns": ["architecture", "onboarding", "playbook"],
+      "query_examples": [
+        "find architecture note blob content",
+        "show onboarding docs"
+      ],
+      "notes": "Used by the demo to explain how static blob content can be queried like a collection."
+    }
+  }
+]

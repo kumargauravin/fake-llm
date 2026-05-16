@@ -1,0 +1,58 @@
+[
+  {
+    "keyword": "blob",
+    "aliases": ["blob content", "document", "static asset", "release note"],
+    "category": "content",
+    "data_source": "content/docs",
+    "source_kind": "blob",
+    "schema": {
+      "id": "string",
+      "title": "string",
+      "body": "string",
+      "tags": "string[]",
+      "kind": "string"
+    }
+  },
+  {
+    "keyword": "docs",
+    "aliases": ["documentation", "doc", "design doc", "notes"],
+    "category": "content",
+    "data_source": "content/docs",
+    "source_kind": "blob",
+    "schema": {
+      "id": "string",
+      "title": "string",
+      "body": "string",
+      "tags": "string[]",
+      "kind": "string"
+    }
+  },
+  {
+    "keyword": "release",
+    "aliases": ["release notes", "changelog", "version note", "release summary"],
+    "category": "content",
+    "data_source": "content/docs",
+    "source_kind": "blob",
+    "schema": {
+      "id": "string",
+      "title": "string",
+      "body": "string",
+      "tags": "string[]",
+      "kind": "string"
+    }
+  },
+  {
+    "keyword": "runbook",
+    "aliases": ["playbook", "operator note", "incident guide", "architecture note"],
+    "category": "content",
+    "data_source": "content/docs",
+    "source_kind": "blob",
+    "schema": {
+      "id": "string",
+      "title": "string",
+      "body": "string",
+      "tags": "string[]",
+      "kind": "string"
+    }
+  }
+]

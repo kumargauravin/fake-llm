@@ -1,5 +1,120 @@
 [
   {
+    "story_id": "content-docs-001",
+    "description": "Find release notes and docs stored as blob content.",
+    "keywords": [
+      "blob",
+      "release",
+      "runbook"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "release",
+        "from_source": "content/docs"
+      }
+    ],
+    "contract": {
+      "source_kind": "blob",
+      "sources": [
+        "content/docs"
+      ],
+      "patterns": [
+        "release notes",
+        "architecture note",
+        "runbook"
+      ],
+      "query_examples": [
+        "show release notes blob content",
+        "find runbook docs for the latest release"
+      ],
+      "notes": "Demonstrates blob-like document retrieval from static assets."
+    }
+  },
+  {
+    "story_id": "content-docs-002",
+    "description": "Resolve architecture notes and onboarding docs from the same blob set.",
+    "keywords": [
+      "runbook",
+      "blob"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "runbook",
+        "from_source": "content/docs"
+      }
+    ],
+    "contract": {
+      "source_kind": "blob",
+      "sources": [
+        "content/docs"
+      ],
+      "patterns": [
+        "architecture",
+        "onboarding",
+        "playbook"
+      ],
+      "query_examples": [
+        "find architecture note blob content",
+        "show onboarding docs"
+      ],
+      "notes": "Used by the demo to explain how static blob content can be queried like a collection."
+    }
+  },
+  {
+    "story_id": "cross-source-001",
+    "description": "Match a release note blob with incident logs.",
+    "keywords": [
+      "release",
+      "error",
+      "trace"
+    ],
+    "relations": [
+      {
+        "from_keyword": "release",
+        "to_keyword": "error",
+        "cardinality": "one-to-many",
+        "join_via": "release_id"
+      }
+    ],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "release",
+        "from_source": "content/docs"
+      },
+      {
+        "step": 2,
+        "action": "fetch",
+        "keyword": "error",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "cross-source",
+      "sources": [
+        "content/docs",
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "release -> incident",
+        "blob docs + logs",
+        "multi story contract"
+      ],
+      "query_examples": [
+        "correlate release notes with error logs",
+        "show docs and traces for the latest incident"
+      ],
+      "notes": "This is the multi-source demo contract for discovery and debugging."
+    }
+  },
+  {
     "story_id": "story_habit_001",
     "description": "List all habits",
     "keywords": [
@@ -88,6 +203,73 @@
         "from_source": "learnings/habits"
       }
     ]
+  },
+  {
+    "story_id": "observability-logs-001",
+    "description": "Search OpenObserve-style logs for errors and traces.",
+    "keywords": [
+      "log",
+      "error",
+      "trace"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "error",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "logs",
+      "sources": [
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "error logs",
+        "trace correlation",
+        "service failure"
+      ],
+      "query_examples": [
+        "show error logs for checkout",
+        "find trace id for the payment service"
+      ],
+      "notes": "Illustrates log-style records with explicit filters."
+    }
+  },
+  {
+    "story_id": "observability-logs-002",
+    "description": "Correlate service logs with a trace identifier.",
+    "keywords": [
+      "trace",
+      "service"
+    ],
+    "relations": [],
+    "resolution_steps": [
+      {
+        "step": 1,
+        "action": "fetch",
+        "keyword": "trace",
+        "from_source": "observability/openobserve"
+      }
+    ],
+    "contract": {
+      "source_kind": "logs",
+      "sources": [
+        "observability/openobserve"
+      ],
+      "patterns": [
+        "trace_id",
+        "request correlation",
+        "latency investigation"
+      ],
+      "query_examples": [
+        "find logs where trace_id equals trace-4492",
+        "search request traces for checkout service"
+      ],
+      "notes": "The UI can use this contract to explain cross-log debugging."
+    }
   },
   {
     "story_id": "science-matter-001",

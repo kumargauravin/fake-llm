@@ -3,9 +3,11 @@ import path from 'path';
 import { MockLLM } from '@nice-tools/fake-llm';
 import { DEMO_MODULE } from '../../lib/demo-module';
 
-let llm: MockLLM | null = null;
+type MockLLMInstance = InstanceType<typeof MockLLM>;
 
-async function getLLM(): Promise<MockLLM> {
+let llm: MockLLMInstance | null = null;
+
+async function getLLM(): Promise<MockLLMInstance> {
   if (!llm) {
     llm = new MockLLM({
       configSource: {

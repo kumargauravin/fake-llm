@@ -1,0 +1,9 @@
+{
+  "id": "log_002",
+  "timestamp": "2026-05-15T10:16:03Z",
+  "level": "warn",
+  "service": "checkout",
+  "message": "Context cache miss, reloading generated static JSON assets.",
+  "trace_id": "trace-4492",
+  "release_id": "release-2026-05"
+}
