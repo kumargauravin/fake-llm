@@ -10,7 +10,7 @@ on:
         default: 'Manual redeploy triggered'
   workflow_run:
     workflows:
-      - 'Publish @nice-tools/mock-llm to npm'
+      - 'Publish @nice-tools/fake-llm to npm'
     types:
       - completed
 
