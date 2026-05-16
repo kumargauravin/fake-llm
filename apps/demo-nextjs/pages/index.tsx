@@ -124,9 +124,14 @@ const SUGGESTED_PROMPTS = [
   'find docs and traces for the latest incident',
   'what is gravity?'
 ];
+let uidCounter = 0;
 
 function uid(): string {
-  return Math.random().toString(36).slice(2);
+  if (globalThis.crypto?.randomUUID) {
+    return globalThis.crypto.randomUUID();
+  }
+  uidCounter += 1;
+  return `uid-${Date.now().toString(36)}-${uidCounter.toString(36)}`;
 }
 
 function truncate(text: string, max = 48): string {
